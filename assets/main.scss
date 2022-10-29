@@ -7,6 +7,15 @@ table{
     border: 2px solid #fdfdfd;
 }
 
+.noborders td {
+        border:0;
+        background-color: #fdfdfd;
+    }
+
+tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
 .quote{
     text-align: center;
     line-height: 30px;

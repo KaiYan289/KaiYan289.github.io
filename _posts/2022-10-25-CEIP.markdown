@@ -5,26 +5,80 @@ date:   2022-10-25 00:38:45 -0500
 categories: jekyll update
 author: Kai Yan,? https://289371298.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
 ---
+<br>
+<h1 align="center">Performance</h1>
+Below is the performance of our method (CEIP) and the baselines manipulating a robotic arm. 
+
+<table>
+<tr class="noborders">
+<center>
+<td>
+<video width="220" height="220" autoplay loop muted>
+<source src="/assets/videos/CEIP.mp4" type="video/mp4">
+</video>
+<p align="center"><b>CEIP (ours)</b><br> Complete 7 tasks out of 8</p>
+</td>
+</center>
+<td>
+<center>
+<video width="220" height="220" autoplay loop muted>
+<source src="/assets/videos/CEIP-singleflow.mp4" type="video/mp4">
+</video>
+</center>
+<p align="center"><b>CEIP without flow mixture</b> Complete 4 tasks out of 8</p>
+</td>
+<td>
+<video width="220" height="220" autoplay loop muted>
+<source src="/assets/videos/CEIP-noexp.mp4" type="video/mp4">
+</video>
+<p align="center"><b>CEIP without explicit prior</b> Complete 2 tasks out of 8</p>
+</td>
+</tr>
+<tr class="noborders">
+<td>
+<video width="220" height="220" autoplay loop muted>
+<source src="/assets/videos/FIST.mp4" type="video/mp4">
+</video>
+<p align="center"><b>FIST [1]</b><br> Complete 2 tasks out of 8</p>
+</td>
+<td>
+<video width="220" height="220" autoplay loop muted>
+<source src="/assets/videos/PARROT.mp4" type="video/mp4">
+</video>
+<p align="center"><b>PARROT [2]</b><br> Complete 3 tasks out of 8</p>
+</td>
+<td>
+<video width="220" height="220" autoplay loop muted>
+<source src="/assets/videos/SKILD.mp4" type="video/mp4">
+</video>
+<p align="center"><b>SKiLD [3]</b><br> Complete 2 tasks out of 8</p>
+</td>
+</tr>
+</table>
+
+There are 8 subtasks for the arm to finish: 1) pick up the eraser in the front, 2) put the eraser into the black container, 3) pick up the brick behind the robot,
+4) put the brick into the white container, 5) open the drawer, 6) pick up the red cylinder on the left, 7) put the cylinder into the drawer and 8) close the drawer.
+
+<h1 align="center">Abstract</h1>
+
+Although reinforcement learning has found widespread use in dense reward settings, training autonomous agents with sparse rewards remains challenging. To address this difficulty, prior work has shown promising results when using not only task-specific demonstrations but also task-agnostic albeit somewhat related demonstrations. In most cases, the available demonstrations are distilled into an implicit prior, commonly represented via a single deep net. Explicit priors in the form of a database that can be queried have also been shown to lead to encouraging results. To better benefit from available demonstrations, we develop a method to Combine Explicit and Implicit Priors (CEIP). CEIP exploits multiple implicit priors in the form of normalizing flows in parallel to form a single complex prior. Moreover, CEIP uses an effective explicit retrieval and push-forward mechanism to condition the implicit priors. In three challenging environments, we find the proposed CEIP method to improve upon sophisticated state-of-the-art techniques.
+
+<h1 align="center">Method</h1>
+
+<h1 align="center">Results</h1>
+
+<h1 align="center">Related Work</h1>
+
+[1] K. Hakhamaneshi et al. Hierarchical few-shot imitation with skill transition models. In ICLR, 2022. 
+
+[2] A. Singh et al. Parrot: Data-driven behavioral priors for reinforcement learning. In ICLR, 2021.
+
+[3] K. Pertsch et al. Demonstration-guided reinforcement learning with learned skills. In CoRL, 2021. 
+
+
+<h1 align="center">Acknowledgements</h1>
+
+This work was supported in part by NSF under Grants 1718221, 2008387, 2045586, 2106825, MRI 1725729, NIFA award 2020-67021-32799, the Jump ARCHES endowment through the Health Care Engineering Systems Center, the National Center for Supercomputing Applications (NCSA) at the University of Illinois at Urbana-Champaign through the NCSA Fellows program, and the IBM-Illinois Discovery Accelerator Institute. We thank NVIDIA for a GPU.
+
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
-
-`YEAR-MONTH-DAY-title.MARKUP`
-
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
