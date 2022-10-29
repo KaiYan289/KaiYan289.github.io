@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations"
 date:   2022-10-25 00:38:45 -0500
 categories: jekyll update
+author: Kai Yan,? https://289371298.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 

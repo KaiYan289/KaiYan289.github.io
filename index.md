@@ -41,13 +41,13 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
 
 # Publications and Preprints
 
-**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations. In <a href="https://arxiv.org/abs/2210.09496" title="RL with Demonstrations">*NeurIPS*</a>, 2022.
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations. In *NeurIPS*, 2022. <a href="https://arxiv.org/abs/2210.09496" title="RL with Demonstrations">[PDF]</a><a href="/jekyll/update/2022/10/25/CEIP">[Website]</a>
 
-**Kai Yan**, Jie Yan, Chuan Luo, Liting Chen, Qingwei Lin and Dongmei Zhang. A Surrogate Objective Framework for Prediction+Optimization with Soft Constraints. In <a href="https://arxiv.org/abs/2111.11358" title="Optimization">*NeurIPS*</a>, 2021.
+**Kai Yan**, Jie Yan, Chuan Luo, Liting Chen, Qingwei Lin and Dongmei Zhang. A Surrogate Objective Framework for Prediction+Optimization with Soft Constraints. In *NeurIPS*, 2021. <a href="https://arxiv.org/abs/2111.11358" title="Optimization">[PDF]</a>
 
-**Kai Yan\***, Zhenggang Tang\*, Liting Sun, Wei Zhan, Changliu Liu. A Microscopic Pandemic Simulator for Pandemic Prediction Using Scalable Million-Agent Reinforcement Learning. <a href="https://arxiv.org/abs/2108.06589" title="MARL">*arXiv:2108.06589*</a>, 2021.
+**Kai Yan\***, Zhenggang Tang\*, Liting Sun, Wei Zhan, Changliu Liu. A Microscopic Pandemic Simulator for Pandemic Prediction Using Scalable Million-Agent Reinforcement Learning. *arXiv:2108.06589*, 2021.<a href="https://arxiv.org/abs/2108.06589" title="MARL">[PDF]</a> 
 
-**Kai Yan\***, Yunlong Lu\*. Algorithms in Multi-Agent Systems: A Holistic Perspective from Reinforcement Learning and Game Theory. <a href="https://arxiv.org/abs/2001.06487" title="survey">*arXiv:2001.06487*</a>, 2020.
+**Kai Yan\***, Yunlong Lu\*. Algorithms in Multi-Agent Systems: A Holistic Perspective from Reinforcement Learning and Game Theory. *arXiv:2001.06487*, 2020. <a href="https://arxiv.org/abs/2001.06487" title="survey">[PDF]</a>
 
 \* Equal Contributions.
 

@@ -296,6 +296,8 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 
 105. The sample complexity of Wasserstein distance is bad, but for MMD it is good. Sinkhorn Divergence stands between them, and have a corresponding sample complexity. They are all called integral probability methods.
 
+106. Do not undo commit in github desktop unless you are absolutely certain! Undoing commit makes you lose all the progresses during this commit. 
+
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
