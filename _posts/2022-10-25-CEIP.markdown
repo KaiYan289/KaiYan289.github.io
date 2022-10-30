@@ -60,7 +60,7 @@ Below is the performance of our method (CEIP) and the baselines manipulating a r
 </td>
 <td>
 <video width="220" height="220" autoplay loop muted>
-<source src="/assets/videos/SKILD2.mp4" type="video/mp4" codec="AVC (H.264)">
+<source src="/assets/videos/1.mp4" type="video/mp4">
 </video>
 <p align="center"><b>SKiLD [3]</b><br> Complete 2 tasks out of 8</p>
 </td>
