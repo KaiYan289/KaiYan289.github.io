@@ -27,7 +27,7 @@ line-height: 0.8;
 </tr>
 </table>
 
-<div class="quote"><p><i>"We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard."<br> -- John F. Kennedy, 1962</i></p></div> 
+<div class="quote"><p><i>"We choose to go to the Moon in this decade and do the other things, not because they're easy, but because they're hard."<br> -- John F. Kennedy, 1962</i></p></div> 
 
 # Who am I?
 
@@ -54,7 +54,7 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
 # Working Experiences
 
 I worked in **Microsoft Research Asia** mentored by <a href="https://www.microsoft.com/en-us/research/people/jiey/" title="Jie Yan">Dr. Jie Yan</a> and <a href="https://scholar.google.com/citations?user=MfJGmUUAAAAJ&hl=zh-CN" title="Chuan Luo">Chuan Luo</a> from Sept. 2020 to Jun. 2021, and was awarded *Stars of Tomorrow*.
-
+<br>
 # Teaching Experiences
 
 I was a teaching assistant for **Introduction to Computer Systems (Fall 2019)** at Peking University, where I led a seminar of 15 people every week, revising and expaning lessons taught in class, grading homeworks, and teaching how to write lecture notes. 
@@ -63,7 +63,7 @@ I was a teaching assistant for **Introduction to Computer Systems (Fall 2019)** 
 	<summary>Photos with Students and Teacher</summary>
 	<img src="ICS.jpg">
 </details>
-
+<br>
 # Other Experiences
 
 I served for the department of outreach in the EECS Student Union of Peking University in 2017-2018, and as the vice president of the EECS Student Union in the academic year of 2018-2019. We have organized awesome events with hundreds of participants, such as Hackathon and Freshmen Ball.

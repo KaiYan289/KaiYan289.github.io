@@ -5,8 +5,24 @@ date:   2022-10-25 00:38:45 -0500
 categories: jekyll update
 author: Kai Yan,? https://289371298.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
 ---
-<br>
+
+<h4 align="center"> <a href="https://arxiv.org/abs/2210.09496">PDF</a> | <a href="https://github.com/289371298/CEIP">Code</a> | Poster | <a href="/assets/CEIP-finale.pptx">Slide</a> | <a href="/bibtex/CEIP.txt">Bibtex</a></h4>
+
+<div class="quote"><p><i>"Explicit prior store expert experiences in a database, and implicit prior store expert experiences in deep nets.<br> We combine the structured information from the former and the expressivity from the latter."</i></p></div>
+
+<h1 align="center">Abstract</h1>
+
+Although reinforcement learning has found widespread use in dense reward settings, training autonomous agents with sparse rewards remains challenging. To address this difficulty, prior work has shown promising results when using not only task-specific demonstrations but also task-agnostic albeit somewhat related demonstrations. In most cases, the available demonstrations are distilled into an implicit prior, commonly represented via a single deep net. Explicit priors in the form of a database that can be queried have also been shown to lead to encouraging results. To better benefit from available demonstrations, we develop a method to Combine Explicit and Implicit Priors (CEIP). CEIP exploits multiple implicit priors in the form of normalizing flows in parallel to form a single complex prior. Moreover, CEIP uses an effective explicit retrieval and push-forward mechanism to condition the implicit priors. In three challenging environments, we find the proposed CEIP method to improve upon sophisticated state-of-the-art techniques.
+
+<h1 align="center">Method</h1>
+
+<embed src="/assets/CEIP-pic/overview-new-1.png" width="750">
+
+<b><i>Overview of CEIP.</i></b> Our approach can be divided into three steps: a) cluster the task-agnostic dataset into different tasks, and then train one flow on each of the $n$ tasks of the task-agnostic dataset; b) train a flow on the task-specific dataset, and then train the coefficients to combine the $n+1$ flows into one large flow $f_\text{TS}$, which is the implicit prior; c) conduct reinforcement learning on the target task; for each timestep, we perform a dataset lookup in the task-specific dataset to find the state most similar to current state $s$, and return the likely \textit{next state} $\hat{s}_{\text{next}}$ in the trajectory, which is the explicit prior.
+
 <h1 align="center">Performance</h1>
+
+
 Below is the performance of our method (CEIP) and the baselines manipulating a robotic arm. 
 
 <table>
@@ -59,14 +75,6 @@ Below is the performance of our method (CEIP) and the baselines manipulating a r
 There are 8 subtasks for the arm to finish: 1) pick up the eraser in the front, 2) put the eraser into the black container, 3) pick up the brick behind the robot,
 4) put the brick into the white container, 5) open the drawer, 6) pick up the red cylinder on the left, 7) put the cylinder into the drawer and 8) close the drawer.
 
-<h1 align="center">Abstract</h1>
-
-Although reinforcement learning has found widespread use in dense reward settings, training autonomous agents with sparse rewards remains challenging. To address this difficulty, prior work has shown promising results when using not only task-specific demonstrations but also task-agnostic albeit somewhat related demonstrations. In most cases, the available demonstrations are distilled into an implicit prior, commonly represented via a single deep net. Explicit priors in the form of a database that can be queried have also been shown to lead to encouraging results. To better benefit from available demonstrations, we develop a method to Combine Explicit and Implicit Priors (CEIP). CEIP exploits multiple implicit priors in the form of normalizing flows in parallel to form a single complex prior. Moreover, CEIP uses an effective explicit retrieval and push-forward mechanism to condition the implicit priors. In three challenging environments, we find the proposed CEIP method to improve upon sophisticated state-of-the-art techniques.
-
-<h1 align="center">Method</h1>
-
-<h1 align="center">Results</h1>
-
 <h1 align="center">Related Work</h1>
 
 [1] K. Hakhamaneshi et al. Hierarchical few-shot imitation with skill transition models. In ICLR, 2022. 
@@ -79,6 +87,3 @@ Although reinforcement learning has found widespread use in dense reward setting
 <h1 align="center">Acknowledgements</h1>
 
 This work was supported in part by NSF under Grants 1718221, 2008387, 2045586, 2106825, MRI 1725729, NIFA award 2020-67021-32799, the Jump ARCHES endowment through the Health Care Engineering Systems Center, the National Center for Supercomputing Applications (NCSA) at the University of Illinois at Urbana-Champaign through the NCSA Fellows program, and the IBM-Illinois Discovery Accelerator Institute. We thank NVIDIA for a GPU.
-
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-

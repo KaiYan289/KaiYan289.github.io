@@ -11,9 +11,9 @@ layout: default
       </time>-->
       <h3 align="center">
       {%- if page.author -%}
-      {% assign author_lists = {{page.author | split: ";"}} %}
+      {% assign author_lists = {{ page.author | split: ";" }} %}
       {% for author in author_lists  %}
-      {% assign a = {{author | split: "?"}}%}
+      {% assign a = {{ author | split: "?" }}%}
       <a href={{a[1]}}>{{a[0]}}</a>
       {% endfor %} 
       {%- endif -%}</h4>

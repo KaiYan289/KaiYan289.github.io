@@ -1,0 +1,6 @@
+@inproceedings{kai-CEIP2022,
+  title = {CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations},
+  author = {Kai Yan and Alexander G. Schwing and Yu-Xiong Wang},
+  booktitle = {Neural Information Processing Systems (NeurIPS)},
+  year = {2022},
+}
