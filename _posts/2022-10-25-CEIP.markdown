@@ -18,7 +18,7 @@ Although reinforcement learning has found widespread use in dense reward setting
 
 <embed src="/assets/CEIP-pic/overview-new-1.png" width="750">
 
-<b><i>Overview of CEIP.</i></b> Our approach can be divided into three steps: a) cluster the task-agnostic dataset into different tasks, and then train one flow on each of the $n$ tasks of the task-agnostic dataset; b) train a flow on the task-specific dataset, and then train the coefficients to combine the $n+1$ flows into one large flow $f_\text{TS}$, which is the implicit prior; c) conduct reinforcement learning on the target task; for each timestep, we perform a dataset lookup in the task-specific dataset to find the state most similar to current state $s$, and return the likely \textit{next state} $\hat{s}_{\text{next}}$ in the trajectory, which is the explicit prior.
+<b><i>Overview of CEIP.</i></b> Our approach can be divided into three steps: a) cluster the task-agnostic dataset into different tasks, and then train one flow on each of the $$n$$ tasks of the task-agnostic dataset; b) train a flow on the task-specific dataset, and then train the coefficients to combine the $$n+1$$ flows into one large flow $$f_\text{TS}$$, which is the implicit prior; c) conduct reinforcement learning on the target task; for each timestep, we perform a dataset lookup in the task-specific dataset to find the state most similar to current state $$s$$, and return the likely next state $$\hat{s}_{\text{next}}$$ in the trajectory, which is the explicit prior.
 
 <h1 align="center">Performance</h1>
 
