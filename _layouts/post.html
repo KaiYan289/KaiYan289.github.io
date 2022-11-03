@@ -9,14 +9,16 @@ layout: default
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {{ page.date | date: date_format }}
       </time>-->
+      <br>
       <h3 align="center">
       {%- if page.author -%}
-      {% assign author_lists = {{ page.author | split: ";" }} %}
+      {% assign author_lists =  page.author | split: ";"  %}
       {% for author in author_lists  %}
-      {% assign a = {{ author | split: "?" }}%}
+      {% assign a =  author | split: "?" %}
       <a href={{a[1]}}>{{a[0]}}</a>
       {% endfor %} 
-      {%- endif -%}</h4>
+      {%- endif -%}
+      </h3>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
