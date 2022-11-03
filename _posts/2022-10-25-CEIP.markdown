@@ -11,6 +11,8 @@ author: Kai Yan,? https://289371298.github.io; Alexander G. Schwing,? https://al
   type="text/javascript">
 </script>
 
+<h4 align="center"> Conference on Neural Information Processing Systems (NeurIPS), 2022</h4>  
+<hr>
 <h4 align="center"> <a href="https://arxiv.org/abs/2210.09496">PDF</a> | <a href="https://github.com/289371298/CEIP">Code</a> | Poster | <a href="/assets/CEIP-finale.pptx">Slide</a> | <a href="/bibtex/CEIP.txt">Bibtex</a></h4>
 
 <div class="quote"><p><i>"Explicit prior store expert experiences in a database, and implicit prior store expert experiences in deep nets.<br> We combine the structured information from the former and the expressivity from the latter."</i></p></div>
