@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations"
+title:  "CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations" 
 date:   2022-10-25 00:38:45 -0500
 categories: jekyll update
 author: Kai Yan,? https://289371298.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
@@ -12,6 +12,7 @@ author: Kai Yan,? https://289371298.github.io; Alexander G. Schwing,? https://al
 </script>
 
 <h4 align="center"> Conference on Neural Information Processing Systems (NeurIPS), 2022</h4>  
+<h4 align="center"> New Orleans, Louisana, United States </h4>  
 <hr>
 <h4 align="center"> <a href="https://arxiv.org/abs/2210.09496">PDF</a> | <a href="https://github.com/289371298/CEIP">Code</a> | Poster | <a href="/assets/CEIP-finale.pptx">Slide</a> | <a href="/bibtex/CEIP.txt">Bibtex</a></h4>
 
