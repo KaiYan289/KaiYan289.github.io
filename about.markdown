@@ -298,6 +298,8 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 
 106. Do not undo commit in github desktop unless you are absolutely certain! Undoing commit makes you lose all the progresses during this commit. 
 
+107. You need to use clf() instead of cla() to remove the old colorbar in your last figure in matplotlib. However, after that you need ax = fig.add_subplot() to re-insert subfigures in order to draw anything more on the canvas. 
+
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
