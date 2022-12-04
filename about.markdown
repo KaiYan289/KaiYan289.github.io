@@ -6,8 +6,8 @@ permalink: /about/
 
 <br/>
 
-*I express my heartfelt gratitude to the mentors of my research career, Prof. Alexander Schwing, Prof. Yu-xiong Wang, Dr. Jie Yan, Dr. Chuan Luo, Prof. Zongqing Lu (sorted by time), as well as all the wonderous people I have met at UIUC, 
-MSRA and PKU. I learned all these tips from my experiences working with you.*
+*I express my heartfelt gratitude to the mentors of my research career, Prof. Alexander Schwing, Prof. Yu-Xiong Wang, Dr. Jie Yan, Dr. Chuan Luo, Prof. Changliu Liu and Prof. Zongqing Lu (sorted by time), as well as all the wonderous people I have met at UIUC, 
+MSRA, CMU and PKU. I learned all these tips from my experiences working with you.*
 
 
 <br/>
@@ -303,6 +303,8 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 108. If you feel lost about why your method is not working while the baseline is, a way out is to implement your method inside the codebase of the baseline. In that way, you can make your method to be as similar to the baseline as possible, and to rule out the factors that does not matter one by one.
 
 109. Be bold and aggressive when you first try to tune your algorithm; often it takes longer than expected to train / bolder choice of hyperparameter than your expecation to make your algorithm work.
+
+110. Do read the experiment details of your baselines, and make sure of how they set up their experiment, especially what do they do to their dataset (e.g. merging). You do not want to waste time on settings that is unnecessarily harder / easier than prior work.
 
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
