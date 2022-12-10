@@ -131,6 +131,8 @@ However, such practice (the one datapoint method) may face the problem of **not 
     torch.backends.cudnn.benchmark = False # CUDNN will try different methods and use an optimal one if this is set to true. This could be harmful if your input size / architecture is changing.
 {% endhighlight %}
 
+And don't forget to use env.seed(seed) for your gym environment! 
+
 Note: once the random seed is set anywhere in this process (regardless of which file it is in), the seed remain fixed (unless implicitly set by other libraries).
 
 {:start="52"}
@@ -305,6 +307,8 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 109. Be bold and aggressive when you first try to tune your algorithm; often it takes longer than expected to train / bolder choice of hyperparameter than your expecation to make your algorithm work.
 
 110. Do read the experiment details of your baselines, and make sure of how they set up their experiment, especially what do they do to their dataset (e.g. merging). You do not want to waste time on settings that is unnecessarily harder / easier than prior work.
+
+111. When you don't know where is the problem of your algorithm, go and check if your dataset has problems.
 
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
