@@ -312,6 +312,10 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 
 112. If you are working optimizations of f-divergences on a probability simplex, consider Fenchel conjugate; consider Donsker-Varadhan representation and https://people.lids.mit.edu/yp/homepage/data/LN_fdiv.pdf Thm 7.14. 
 
+113. Continuing from 112: when considering relaxing optimization (e.g. use Lagrange multiplier to relax some constraints), relax as less constraint as possible (as long as you can solve it). Relax to probability simplex is better than relax to positivity constraint.
+
+114. remember to set CUDA_LAUNCH_BLOCKING=1 whenever you meet a device-side assert triggered error.
+
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
