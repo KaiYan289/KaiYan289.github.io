@@ -316,6 +316,12 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 
 114. remember to set CUDA_LAUNCH_BLOCKING=1 whenever you meet a device-side assert triggered error.
 
+115. If you don't know what parameter to tune, try to do the following two things:
+1) check very closely on your direct baseline to see how they solve the problem;
+2) retry factors excluded before last bug fix. Sometimes bug fixes will make factors behave very differently and you may overlook some crucial factors.
+
+116. For RL evaluation, you should try to use deterministic action (mean as output) as stochastic ones are often with fairly high variance and cannot do well, especially in those environments requiring accurate actions.
+
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
