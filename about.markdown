@@ -322,6 +322,19 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 
 116. For RL evaluation, you should try to use deterministic action (mean as output) as stochastic ones are often with fairly high variance and cannot do well, especially in those environments requiring accurate actions.
 
+117. If you need to send your computer to repair, make sure you have copied everything you need out of it. Especially the private keys for the server.
+
+118. If you need to copy datasets to different folders on your server, consider soft links; this saves your disk space and frees you from copying everytime you change your dataset.
+
+119. If you were to build up a desktop, remember that do not throw the boxes until you have lighten up the machine. There might be some important information or some material (e.g. screws, cables) in the boxes.
+
+120. When building up your desktop, remember to observe the minimal principle: use only as least as possible components to light up your mainboard first. Do not haste to install the extra memory / disk / graphics card. However, you should always make room for your GPU at the very beginning.
+
+121. Make sure to check the debugging light and code on your mainboard to figure out the problem.
+
+122. When swapping an element in an array and its index in python, be very careful: a[a[0]], a[0] = a[0], a[a[0]] might not behave the expected way. A better choice is to use a, b = copy.deepcopy(b), copy.deepcopy(a), or use the tmp variable.
+
+
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
