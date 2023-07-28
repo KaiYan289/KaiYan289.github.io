@@ -35,7 +35,7 @@ Hi there! I am Kai Yan (颜开 in Chinese), a second-year Ph.D. student in the D
 Prior to that, I get my Bachelor of Science degree in computer science at Peking University with a *Summa Cum Laude* and a national scholarship. In my high school years, I learned informatics and got a silver award in the National Olympiad of Informatics (NOI 2016).
 
 My research interest is **deep learning for better decision making**, which is mainly **deep reinforcement learning and imitation learning**. I have conducted research in the following fields: 1) optimization with prediction, 
-2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning, and 4) imitation learning.
+2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, and 4) decision transformer and LLM finetuning with RL.
 
 You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://github.com/289371298" title="github">Github</a> and <a href="https://www.linkedin.com/in/%E5%BC%80-%E9%A2%9C-18b7931b1/" title="Linkedin">Linkedin</a> here. Don't forget to check your daily tips at the top of this page!
 
