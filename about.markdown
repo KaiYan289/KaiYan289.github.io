@@ -334,6 +334,171 @@ L-BFGS needs optimizer.step(closure()) where closure() gives the loss function. 
 
 122. When swapping an element in an array and its index in python, be very careful: a[a[0]], a[0] = a[0], a[a[0]] might not behave the expected way. A better choice is to use a, b = copy.deepcopy(b), copy.deepcopy(a), or use the tmp variable.
 
+123. (Pytorch official hint) If you need to move a model to GPU via .cuda() , please do so before constructing optimizers for it. Parameters of a model after .cuda() will be different objects with those before the call. In general, you should make sure that optimized parameters live in consistent locations when optimizers are constructed and used.
+
+124. GLFW might be problematic on headless machines (i.e. servers); to fix this, try set MUJOCO_GL environment variable to egl or osmesa.
+
+125. When you are using np.linalg.norm, make sure you know you are operating on a vector or matrix; they have very different behavior.
+
+126. If you want to make modifications to a decision transformer, make sure your sequence is still one-way logical (always induce the terms on the right from the terms on the left).
+
+127. The problem of beam search is that top-K choices may only include a very small portion of probability. You need to set K to be very large to include most possibility.
+
+128. If torch.save cannot save because of errors like some local variables in class, try cloudpickle.dump(). example: cloudpickle.dump(agent, open("model/"+NAME+"/agent-iter"+str(i)+".pkl", mode="wb"))
+
+129. Remember that decision transformer is a transformer, so as long as the timestep, state and attention mask are correctly matched and in the correct order, it does not matter where you put the paddings (front or latter). Remember, decision transformer can be used for unordered set once the positional encoding is removed, so it does not really matter if it is front-padded or latter-padded. 
+
+130. GPT2 in huggingface is causal, and decision transformer is based on GPT2. It does not matter what padding action you are putting into the place where attention mask is 0.
+
+131. Remember that AWR's implementation has a weight clipping of 20, and it is normal that initially there are either weight 20 or 0. Also, AWR is quite sensitive to buffer size; buffer size too small (50K recommended) will make the algorithm overfit to the dataset.
+
+132.
+```
+import time
+from tqdm import tqdm
+lst, lst2, lst3, lst4 = [], [], [], []
+
+for i in tqdm(range(100000)):
+    lst.append(torch.zeros(1, 100))
+    lst2.append(torch.zeros(100))
+
+t0 = time.time()
+for i in tqdm(range(100000)):
+    lst3.append(lst[i][[0], :])
+t1 = time.time()
+
+for i in tqdm(range(100000)):
+    lst4.append(lst2[i].reshape(1, 100))
+t2 = time.time()
+
+print("[0]:", t1 - t0, "reshape:", t2-t1)
+``` 
+The result is [0]: 1.9272778034210205 reshape: 0.3856058120727539. The latter is 5x faster than the former! (torch.stack is even faster!)
+
+{:start="133"}
+
+133. When you find that the training curve is strange, make sure to check whether you sampling process is fine; your program might only be trained on a small subset due to code bug.
+
+134. remember torch.distributions.Normal takes **standard deviation** as input, but torch.distributions.multivariate_normal.MultivariateNormal takes **variance** (covariance) as input!
+
+135. remember to check the original code by the author; there might be some special tricks in it or different hyperparams that are not specified in the paper.
+
+136. Be very careful when you use xxx if yyy else zzz; adding () at the edge of the expressions is always a good practice.
+
+137. A good way to write squashed Gaussian is through torch.distributions (from online DT):
+
+```
+class TanhTransform(pyd.transforms.Transform):
+    domain = pyd.constraints.real
+    codomain = pyd.constraints.interval(-1.0, 1.0)
+    bijective = True
+    sign = +1
+
+    def __init__(self, cache_size=1):
+        super().__init__(cache_size=cache_size)
+
+    @staticmethod
+    def atanh(x):
+        return 0.5 * (x.log1p() - (-x).log1p())
+
+    def __eq__(self, other):
+        return isinstance(other, TanhTransform)
+
+    def _call(self, x):
+        return x.tanh()
+
+    def _inverse(self, y):
+        # We do not clamp to the boundary here as it may degrade the performance of certain algorithms.
+        # one should use `cache_size=1` instead
+        return self.atanh(y)
+
+    def log_abs_det_jacobian(self, x, y):
+        # We use a formula that is more numerically stable, see details in the following link
+        # https://github.com/tensorflow/probability/commit/ef6bb176e0ebd1cf6e25c6b5cecdd2428c22963f#diff-e120f70e92e6741bca649f04fcd907b7
+        return 2.0 * (math.log(2.0) - x - F.softplus(-2.0 * x))
+
+
+class SquashedNormal(pyd.transformed_distribution.TransformedDistribution):
+    """
+    Squashed Normal Distribution(s)
+
+    If loc/std is of size (batch_size, sequence length, d),
+    this returns batch_size * sequence length * d
+    independent squashed univariate normal distributions.
+    """
+
+    def __init__(self, loc, std):
+        self.loc = loc
+        self.std = std
+        
+        # print("shape:", loc.shape, std.shape)
+        
+        self.base_dist = pyd.Normal(loc, std)
+
+        transforms = [TanhTransform()]#  [] #
+        super().__init__(self.base_dist, transforms)
+
+    @property
+    def mean(self):
+        mu = self.loc
+        for tr in self.transforms:
+            mu = tr(mu)
+        return mu
+
+    def entropy(self, N=1):
+        # sample from the distribution and then compute
+        # the empirical entropy:
+        x = self.rsample((N,))
+        log_p = self.log_prob(x)
+
+        # log_p: (batch_size, context_len, action_dim),
+        return -log_p.mean(axis=0).sum(axis=2)
+
+    def log_likelihood(self, x):
+        # log_prob(x): (batch_size, context_len, action_dim)
+        # sum up along the action dimensions
+        # Return tensor shape: (batch_size, context_len)
+        return self.log_prob(x).sum(axis=2)
+
+```
+
+{:start="138"}
+
+138. A simple way to write a dataset for iteration:
+
+```
+class RepeatedDataset:
+    def __init__(self, datas, batch_size, start_with_random=True):
+        self.datas = []
+        for data in datas: # list of arrays with the same first dimension.
+            self.datas.append(data.clone())
+        self.counter, self.idx, self.batch_size = 0, torch.randperm(self.datas[0].shape[0]), batch_size
+        if start_with_random:
+            for _ in range(len(self.datas)):
+                print("shape:", self.datas[_].shape)
+                self.datas[_] = self.datas[_][self.idx]
+    
+    def __len__(self):
+        return self.datas[0].shape[0] // self.batch_size    
+    
+    def getitem(self):
+        if self.counter + self.batch_size > len(self.idx):
+            self.counter, self.idx = 0, torch.randperm(self.datas[0].shape[0])
+            for _ in range(len(self.datas)):
+                self.datas[_] = self.datas[_][self.idx]
+        ret = []
+        for _ in range(len(self.datas)):
+            ret.append(self.datas[_][self.counter:self.counter+self.batch_size])
+        self.counter += self.batch_size
+        """
+        print(self.counter, self.counter+self.batch_size)
+        
+        for _ in range(len(self.datas)):
+            print(self.datas[_][self.counter:self.counter+self.batch_size])
+        """
+        if len(self.datas) == 1: return ret[0]
+        else: return ret
+```
 
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)

@@ -35,15 +35,23 @@ Hi there! I am Kai Yan (颜开 in Chinese), a second-year Ph.D. student in the D
 Prior to that, I get my Bachelor of Science degree in computer science at Peking University with a *Summa Cum Laude* and a national scholarship. In my high school years, I learned informatics and got a silver award in the National Olympiad of Informatics (NOI 2016).
 
 My research interest is **deep learning for better decision making**, which is mainly **deep reinforcement learning and imitation learning**. I have conducted research in the following fields: 1) optimization with prediction, 
-2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, and 4) decision transformer and LLM finetuning with RL.
+2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, 4) decision transformer, and 5) Large Language Model (LLM)+MCTS.
 
-You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://github.com/289371298" title="github">Github</a> and <a href="https://www.linkedin.com/in/%E5%BC%80-%E9%A2%9C-18b7931b1/" title="Linkedin">Linkedin</a> here. Don't forget to check your daily tips at the top of this page!
+You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://github.com/kaiyan289" title="github">Github</a> and <a href="https://www.linkedin.com/in/%E5%BC%80-%E9%A2%9C-18b7931b1/" title="Linkedin">Linkedin</a> here. Don't forget to check your daily tips at the top of this page!
+ 
+# Publications 
 
-# Publications and Preprints
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. A Simple Solution for Offline Imitation from Observations and Examples with Possibly Incomplete Trajectories. In *NeurIPS*, 2023. <a href="/assets/TAILO.pdf" title="Simple LfO">[PDF]</a><a href="/jekyll/update/2023/10/06/TAILO">[Website]</a>
 
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations. In *NeurIPS*, 2022. <a href="https://arxiv.org/abs/2210.09496" title="RL with Demonstrations">[PDF]</a><a href="/jekyll/update/2022/10/25/CEIP">[Website]</a>
 
 **Kai Yan**, Jie Yan, Chuan Luo, Liting Chen, Qingwei Lin and Dongmei Zhang. A Surrogate Objective Framework for Prediction+Optimization with Soft Constraints. In *NeurIPS*, 2021. <a href="https://arxiv.org/abs/2111.11358" title="Optimization">[PDF]</a>
+
+# Preprints
+
+Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, 2023. <a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[Website]</a>
+
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching, 2023. <a href="/assets/PW-DICE.pdf" title="PW-DICE">[PDF]</a> 
 
 **Kai Yan\***, Zhenggang Tang\*, Liting Sun, Wei Zhan, Changliu Liu. A Microscopic Pandemic Simulator for Pandemic Prediction Using Scalable Million-Agent Reinforcement Learning. *arXiv:2108.06589*, 2021.<a href="https://arxiv.org/abs/2108.06589" title="MARL">[PDF]</a> 
 
