@@ -1,0 +1,6 @@
+@inproceedings{kai-TAILO2023,
+  title = {A Simple Solution for Offline Imitation from Observations and Examples with Possibly Incomplete Trajectories},
+  author = {Kai Yan and Alexander G. Schwing and Yu-Xiong Wang},
+  booktitle = {Neural Information Processing Systems (NeurIPS)},
+  year = {2023},
+}
