@@ -51,7 +51,7 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
 
 Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, 2023. <a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[Website]</a>
 
-**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching, 2023. <a href="/assets/PW-DICE.pdf" title="PW-DICE">[PDF]</a> 
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In NeurIPS OTML workshop, 2023. <a href="/assets/PW-DICE.pdf" title="PW-DICE">[PDF]</a> 
 
 **Kai Yan\***, Zhenggang Tang\*, Liting Sun, Wei Zhan, Changliu Liu. A Microscopic Pandemic Simulator for Pandemic Prediction Using Scalable Million-Agent Reinforcement Learning. *arXiv:2108.06589*, 2021.<a href="https://arxiv.org/abs/2108.06589" title="MARL">[PDF]</a> 
 
