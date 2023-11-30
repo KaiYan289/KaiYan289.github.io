@@ -14,7 +14,7 @@ author: Kai Yan,? https://kaiyan289.github.io; Alexander G. Schwing,? https://al
 <h4 align="center"> Conference on Neural Information Processing Systems (NeurIPS), 2023</h4>  
 <h4 align="center"> New Orleans, Louisana, United States </h4>  
 <hr>
-<h4 align="center"> <a href="/assets/TAILO.pdf">PDF</a> | <a href="https://github.com/KaiYan289/TAILO">Code</a> | Poster | <a href="/assets/TAILO_pre.pptx">Slide</a> | <a href="/bibtex/TAILO.txt">Bibtex</a></h4>
+<h4 align="center"> <a href="/assets/TAILO.pdf">PDF</a> | <a href="https://github.com/KaiYan289/TAILO">Code</a> | <a href="/assets/poster-23-main.png">Poster</a> | <a href="/assets/TAILO_pre.pptx">Slide</a> | <a href="/bibtex/TAILO.txt">Bibtex</a></h4>
 
 <div class="quote"><p><i>"Existing methods for offline <b>Imitation Learning from Observation (LfO)</b> are not robust enough.<br> Is there a simpler and more robust solution?"</i></p></div>
 
