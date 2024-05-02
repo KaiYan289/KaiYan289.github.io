@@ -500,6 +500,32 @@ class RepeatedDataset:
         else: return ret
 ```
 
+139. You should not use multiprocessing in dataloader while loading tensors, or you might get a CUDA initialization error. Make sure that your torch.dataloader only loads numpy arrays instead of tensors. (besides, if the data is on GPU, why bother loading it via multiprocessing?)
+
+140. use dataload = iter(dataloader); next(dataload) to get the next batch in the torch dataloader. (do not use next(iter()) as it is very slow!)
+
+141. You must do **left-padding** for pretrained LLM models, because LLMs are decoder-only architectures and are not trained to continue from padding tokens! (https://huggingface.co/docs/transformers/main/en/llm_tutorial#wrong-padding-side)
+
+142. If your self-implemented SAC algorithm is diverging, you should check whether the entropy sign is correct. If the entropy term is wrong, then the Q value will certainly diverge (which is different from other cases where the entropy is not involved in the TD function).
+
+143. next(it), it=iter(dataloader) is very slow, probably because it does not use the parallelization of the torch dataloader; try iterate in a for loop instead.
+
+144. If you find that the CPU usage of pytorch code is very high, try use torch.set_num_threads(1) (to reduce thread communication cost) or pin_memory=False (if you have ever explicitly set it to true). 
+
+145. When making slides, the front "dot" recommendation: unicode 2022 (in custom), 100% height
+
+146. Be very careful when you adapt random agents to deterministic algorithms (e.g. TD3 to ODT). You probably run the risk of not initiating exploration noise, which does not have to exist when it was a stochastic agent.
+
+147. Be close to standard D4RL format; it is better that your program directly read from get_dataset() such that you have better reproducibility.
+
+148. Transformer RL agents might have very different hyperparameters from MLP ones (e.g. critic learning rate).
+
+149. If you are confronting weird critic divergence, check your data; if not a single state is "terminal" (i.e. all timeout), remember to set one to terminal.
+
+150. If your RL agent is diverging due to strange reasons, try layernorm on the critic. However, adding layernorm to the critic is not always the best choice; sometimes (e.g. mujoco) it slows down the learning process, but sometimes (e.g. adroit) it is magical.
+
+151. If you are wondering how people solve antmaze: they (CQL, IQL) sub reward by 1, making a sparse reward env becoming a dense one.
+
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
