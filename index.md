@@ -43,7 +43,7 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
 
 Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[Website]</a>
 
-**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In ICML, 2024. <a href="/assets/PW-DICE.pdf" title="PW-DICE">[PDF]</a> 
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In *ICML*, 2024. <a href="/assets/PW-DICE.pdf" title="PW-DICE">[PDF]</a> 
 
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. A Simple Solution for Offline Imitation from Observations and Examples with Possibly Incomplete Trajectories. In *NeurIPS*, 2023. <a href="/assets/TAILO.pdf" title="Simple LfO">[PDF]</a><a href="/jekyll/update/2023/10/06/TAILO">[Website]</a>
 
