@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TBD" 
+title:  "Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching" 
 date:   2024-6-8 00:30:00 -0800
 categories: jekyll update
 author: Kai Yan,? https://kaiyan289.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
