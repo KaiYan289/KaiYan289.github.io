@@ -41,9 +41,9 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
  
 # Publications 
 
-Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[Website]</a>
+Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[Website]</a></a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[LangChain link]</a>
 
-**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In *ICML*, 2024. <a href="/assets/PW-DICE.pdf" title="PW-DICE">[PDF]</a> 
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In *ICML*, 2024. <a href="https://arxiv.org/abs/2311.01331" title="PW-DICE">[PDF]</a><a href="/jekyll/update/2024/06/09/PWDICE">[Website]</a> 
 
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. A Simple Solution for Offline Imitation from Observations and Examples with Possibly Incomplete Trajectories. In *NeurIPS*, 2023. <a href="/assets/TAILO.pdf" title="Simple LfO">[PDF]</a><a href="/jekyll/update/2023/10/06/TAILO">[Website]</a>
 
@@ -61,14 +61,15 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 
 # Working Experiences
 
-I worked in **Microsoft Research Asia** mentored by <a href="https://www.microsoft.com/en-us/research/people/jiey/" title="Jie Yan">Dr. Jie Yan</a> and <a href="https://scholar.google.com/citations?user=MfJGmUUAAAAJ&hl=zh-CN" title="Chuan Luo">Chuan Luo</a> from Sept. 2020 to Jun. 2021, and was awarded *Stars of Tomorrow*.
+I am working in **ByteDance US** mentored by <a href="https://www.linkedin.com/in/jiecao-chen-65352266/" title="JieCao Chen">Dr. JieCao Chen</a> since Jun. 2024. I also worked in **Microsoft Research Asia** mentored by <a href="https://www.microsoft.com/en-us/research/people/jiey/" title="Jie Yan">Dr. Jie Yan</a> and <a href="https://scholar.google.com/citations?user=MfJGmUUAAAAJ&hl=zh-CN" title="Chuan Luo">Chuan Luo</a> from Sept. 2020 to Jun. 2021, and was awarded *Stars of Tomorrow*.
+
 <br>
 # Teaching Experiences
 
-I was a teaching assistant for **Introduction to Computer Systems (Fall 2019)** at Peking University, where I led a seminar of 15 people every week, revising and expaning lessons taught in class, grading homeworks, and teaching how to write lecture notes. 
+I was a teaching assistant for **Computational Photography (Spring 2024)** at UIUC, during which I held office hours, graded homework and designed exam questions. Prior to that, I was a teaching assistant for **Introduction to Computer Systems (Fall 2019)** at Peking University, where I led a seminar of 15 people every week, revising and expaning lessons taught in class, grading homeworks, and teaching how to write lecture notes. 
 
 <details>
-	<summary>Photos with Students and Teacher</summary>
+	<summary>Photos with Students and Teacher in PKU</summary>
 	<img src="ICS.jpg">
 </details>
 <br>

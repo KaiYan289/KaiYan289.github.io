@@ -1,0 +1,157 @@
+---
+layout: post
+title:  "TBD" 
+date:   2024-6-9 23:36:00 -0800
+categories: jekyll update
+author: Kai Yan,? https://kaiyan289.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
+---
+
+<script
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript">
+</script>
+
+<h4 align="center"> ICML, 2024</h4>  
+<h4 align="center"> New Orleans, Louisana, United States </h4>  
+<hr>
+<h4 align="center"> <a href="/assets/TAILO.pdf">PDF</a> | <a href="https://github.com/KaiYan289/TAILO">Code</a> | <a href="/assets/poster-23-main.png">Poster</a> | <a href="/assets/TAILO_pre.pptx">Slide</a> | <a href="/bibtex/TAILO.txt">Bibtex</a></h4>
+
+<div class="quote"><p><i>"Existing methods for offline <b>Imitation Learning from Observation (LfO)</b> are not robust enough.<br> Is there a simpler and more robust solution?"</i></p></div>
+
+<h1 align="center">Performance</h1>
+
+Our method excels across a variety of scenarios and outperforms many methods, including SMODICE [1], LobsDICE [2], ORIL [3], MOReL (with extra access to reward) [4], MOPO (with extra access to reward) [5], ReCOIL [6], OTR [7], DWBC (with extra access to expert action) [8], MARWIL [9], RCE [10], and behavior cloning.
+
+<details>
+	<summary>With Standard Settings in SMODICE [1]</summary>
+                <h4 align="center">Vs. SMODICE [1], LObSDICE [2], behavior cloning, ORIL [3], ReCOIL [6]</h4>
+                <img src="/assets/TAILO-pic/app/plot-normal-May-2.png">
+	<h4 align="center">Vs. OTR [7], DWBC with expert action [8] and MARWIL [9]</h4>
+                <img src="/assets/TAILO-pic/app/plot-DWBC-OTR-MARWIL-normal-cameraready.png">
+</details>
+
+<details>
+	<summary>With Few Expert Trajectories in the Task-Agnostic Dataset</summary>
+	<h4 align="center">Vs. SMODICE [1], LObSDICE [2], behavior cloning, ORIL [3], ReCOIL [6]</h4>
+                <img src="/assets/TAILO-pic/expert40/plot-expert40-May-2.png">
+	<h4 align="center">Vs. OTR [7], DWBC with expert action [8] and MARWIL [9]</h4>
+                <img src="/assets/TAILO-pic/app/plot-DWBC-OTR-MARWIL-E40-cameraready.png">
+</details>
+
+<details>
+	<summary>With Incomplete Task-Agnostic Dataset</summary>
+	<img src="/assets/TAILO-pic/incompleteTA/plot-missing-May-2.png">
+</details>
+
+<details>
+	<summary>With Incomplete Task-Specific Dataset</summary>
+	<img src="/assets/TAILO-pic/incompleteTS/plot-ht-May-2-small.png">
+</details>
+
+<details>
+	<summary>Example-Based Imitation</summary>
+	<img src="/assets/TAILO-pic/goal/plot-goal-May-2.png">
+</details>
+
+<details>
+	<summary>Transfer from Different Dynamics</summary>
+	<img src="/assets/TAILO-pic/mismatch/plot-mismatch-May-2.png">
+</details>
+
+<details>
+	<summary>Standard Offline RL Benchmarks</summary>
+
+<i>Note our method has no access to the ground-truth reward label, which is different from the baselines.</i>
+
+<table>
+<tr>
+                <th>Environment </th><th> MOReL [4]</th><th> MOPO [5]</th> <th>TAILO (Ours) </th>
+</tr><tr>
+                <td> Halfcheetah-Medium </td><td> 42.1 </td><td> <b>42.3</b> </td><td> 39.8 </td>                
+</tr>
+<tr>
+                <td> Hopper-Medium </td><td> <b>95.4</b> </td><td> 28 </td><td> 56.2 </td>                
+</tr>
+<tr>
+                <td> Walker2d-Medium </td><td> <b>77.8</b> </td><td> 17.8 </td><td> 71.7 </td>                
+</tr>
+<tr>
+                <td> Halfcheetah-Medium-Replay </td><td> 40.2 </td><td> <b>53.1</b> </td><td> 42.8 </td>                
+</tr>
+<tr>
+                <td> Hopper-Medium-Replay </td><td> <b>93.6</b></td><td> 67.5 </td><td> 83.4 </td>                
+</tr>
+<tr>
+                <td> Walker2d-Medium-Replay </td><td> 49.8 </td><td> 39.0 </td><td> <b>61.2</b> </td>                
+</tr>
+<tr>
+                <td> Halfcheetah-Medium-Expert </td><td> 53.3 </td><td> 63.3 </td><td> <b>94.3</b> </td>                
+</tr>
+<tr>
+                <td> Hopper-Medium-Expert </td><td> 108.7 </td><td> 23.7 </td><td> <b>111.5</b> </td>                
+</tr>
+<tr>
+                <td> Walker2d-Medium-Expert </td><td> 95.6 </td><td> 44.6 </td><td> <b>108.2</b> </td>                
+</tr>
+<tr>
+                <td> Average </td><td> 72.9 </td><td> 42.1 </td><td> <b>74.3</b> </td>                
+</tr>
+</table>
+</details>
+<br>
+See our original paper for a thorough ablation study of our method (and DICE methods [1, 2]).
+
+<h1 align="center">Abstract</h1>
+
+Offline imitation from observations aims to solve MDPs where only *task-specific* expert states and *task-agnostic* non-expert state-action pairs are available. Offline imitation is useful in real-world scenarios where arbitrary interactions are costly and expert actions are unavailable. The state-of-the-art `DIstribution Correction Estimation' (DICE) methods minimize divergence of state occupancy between expert and learner policies and retrieve a policy with weighted behavior cloning; however, their results are unstable when learning from incomplete trajectories, due to a non-robust optimization in the dual domain. To address the issue, in this paper, we propose Trajectory-Aware Imitation Learning from Observations (TAILO). TAILO uses a discounted sum along the future trajectory as the weight for weighted behavior cloning. The terms for the sum are scaled by the output of a discriminator, which aims to identify expert states. Despite simplicity, TAILO works well if there exist trajectories or segments of expert behavior in the task-agnostic data, a common assumption in prior work. In experiments across multiple testbeds, we find TAILO to be more robust and effective, particularly with incomplete trajectories.
+
+<h1 align="center">Why is Current State-of-the-Art Non-Robust?</h1>
+
+The current state-of-the-art method for LfO, SMODICE [1] and LobsDICE [2], optimizes policy by maximizing the dual of KL-divergences between learner and expert state(-pair) occupancies, which has a linear $$V(s)$$ term and $$\exp(R(s)+\gamma V(s')-V(s))$$ or $$\exp(c(R(s,s')+\gamma V(s')-V(s)))$$, where $$R$$ is a reward learned by a discriminator, and $$V(s)$$ is the (equivalence of) value function. If the task-agnostic dataset is incomplete, some terms will be missing from the objective, which in turn will lead to divergence in training. 
+
+<details>
+	<summary>Illustration of Divergence</summary>
+                Red corresponds to term missing; training ends early due to NaN.
+	<img src="/assets/TAILO-pic/diverg.png">
+</details>
+<br>
+The DICE method is also known for struggling on incomplete task-specific (expert) datasets due to overfitting [11] and lack of generalizability [12, 13], and $$\chi^2$$-divergence-based variants are generally even weaker than KL ones. See our paper for a more rigorous and detailed discussion.
+
+<h1 align="center">What is Our Solution?</h1>
+
+<img src="/assets/TAILO-pic/teaser.png">
+
+Our solution is very simple: <b>Improve the reward-labeling process of DICE methods [1, 2], and remove the value function learning process that is non-robust.</b>
+
+<b>Improved reward-labeling:</b> DICE methods train a normal binary discriminator with states from task-specific data as positive samples and states from task-agnostic data as negative ones. However, considering the fact that there are expert segments remaining in the task-agnostic data, we use a 2-step <i>Positive-Unlabeled (PU) learning</i>, seeing task-agnostic data as unlabeled dataset, to achieve better classification margins.
+
+<b>Non-parametric weights for behavior cloning:</b> with reward for each state labeled, we use the <i>discounted sum</i> of thresholded (exponentiated) future reward as the coefficient for each state-action pair in the task-agnostic dataset. Such objective allows rewards to be propagated along the trajectories that leads to expert trajectories, decaying after deviating from expert trajectory segments, while removing the need of learning value functions, which is a major source of instability. Such weight is also robust to missing steps along the trajectory, and it does not need to be very accurate.  
+
+<h1 align="center">Related Work</h1>
+
+[1] Y. J. Ma, A. Shen, D. Jayaraman, and O. Bastani. Smodice: Versatile offline imitation learning via state occupancy matching. In ICML, 2022.
+
+[2] G. hyeong Kim, J. Lee, Y. Jang, H. Yang, and K. Kim. Lobsdice: Offline learning from observation via stationary distribution correction estimation. In NeurIPS, 2022.
+
+[3] K. Zolna, A. Novikov, K. Konyushkova, C. Gulcehre, Z. Wang, Y. Aytar, M. Denil, N. de Freitas, and S. E. Reed. Offline learning from demonstrations and unlabeled experience. In Offline Reinforcement Learning Workshop at NeurIPS, 2020.
+
+[4] R. Kidambi, A. Rajeswaran, P. Netrapalli, and T. Joachims. Morel: Model-based offline reinforcement learning. In NeurIPS, 2020.
+
+[5] T. Yu, G. Thomas, L. Yu, S. Ermon, J. Y. Zou, S. Levine, C. Finn, and T. Ma. Mopo: Model-based offline policy optimization. In NeurIPS, 2020.
+
+[6] H. S. Sikchi, A. Zhang, and S. Niekum. Imitation from arbitrary experience: A dual unification of reinforcement and imitation learning methods. ArXiv:2302.08560, 2023.
+
+[7] Y. Luo, Z. Jiang, S. Cohen, E. Grefenstette, and M. P. Deisenroth. Optimal transport for offline imitation learning. In ICLR, 2023.
+
+[8] H. Xu, X. Zhan, H. Yin, and H. Qin. Discriminator-weighted offline imitation learning from suboptimal demonstrations. In NeurIPS, 2022.
+
+[9] Q. Wang, J. Xiong, L. Han, H. Liu, T. Zhang, et al. Exponentially weighted imitation learning for batched historical data. In NeurIPS, 2018.
+
+[10] B. Eysenbach, S. Levine, and R. Salakhutdinov. Replacing rewards with examples: Example-based policy search via recursive classification. In NeurIPS, 2021.
+
+[11] A. Camacho, I. Gur, M. Moczulski, O. Naschum, and A. Faust. Sparsedice: Imitation learning for temporally sparse data via regularization. In the Unsupervised Reinforcement Learning Workshop in ICML, 2021.
+
+[12] T. Xu, Z. Li, Y. Yu, and Z.-Q. Luo. On generalization of adversarial imitation learning and beyond. arXiv preprint arXiv:2106.10424, 2021.
+
+[13] L. Ziniu, X. Tian, Y. Yang, and L. Zhi-Quan. Rethinking valuedice - does it really improve performance? In ICLR Blog Track, 2022.
+
