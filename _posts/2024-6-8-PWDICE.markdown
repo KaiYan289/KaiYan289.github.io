@@ -12,9 +12,9 @@ author: Kai Yan,? https://kaiyan289.github.io; Alexander G. Schwing,? https://al
 </script>
 
 <h4 align="center"> ICML, 2024</h4>  
-<h4 align="center"> New Orleans, Louisana, United States </h4>  
+<h4 align="center"> Vienna, Austria </h4>  
 <hr>
-<h4 align="center"> <a href="/assets/TAILO.pdf">PDF</a> | <a href="https://github.com/KaiYan289/TAILO">Code</a> | <a href="/assets/poster-23-main.png">Poster</a> | <a href="/assets/TAILO_pre.pptx">Slide</a> | <a href="/bibtex/TAILO.txt">Bibtex</a></h4>
+<h4 align="center"> <a href="https://arxiv.org/abs/2311.01331">PDF</a> | <a href="https://github.com/KaiYan289/PW-DICE/">Code</a> | Poster | Slide | <a href="/bibtex/PWDICE.txt">Bibtex</a></h4>
 
 <div class="quote"><p><i>"Existing methods for offline <b>Imitation Learning from Observation (LfO)</b> are not robust enough.<br> Is there a simpler and more robust solution?"</i></p></div>
 

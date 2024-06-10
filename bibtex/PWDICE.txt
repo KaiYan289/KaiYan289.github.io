@@ -1,0 +1,6 @@
+@inproceedings{kai-TAILO2023,
+  title = {Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching},
+  author = {Kai Yan and Alexander G. Schwing and Yu-Xiong Wang},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year = {2024},
+}
