@@ -41,7 +41,7 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
  
 # Publications 
 
-Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[Website]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[LangChain link]</a>
+Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://lapisrocks.github.io/LanguageAgentTreeSearch/">[Website]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[LangChain link]</a>
 
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In *ICML*, 2024. <a href="https://arxiv.org/abs/2311.01331" title="PW-DICE">[PDF]</a><a href="/jekyll/update/2024/06/08/PWDICE">[Website]</a> 
 
