@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations" 
-date:   2022-10-25 00:38:45 -0500
+date:   2022-10-25 00:38:45 -0700
 categories: jekyll update
 author: Kai Yan,? https://289371298.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
 ---
