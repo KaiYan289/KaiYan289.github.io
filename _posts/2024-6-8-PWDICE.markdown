@@ -34,7 +34,7 @@ We test OTR [1] on the D4RL MuJoCo dataset with testbeds appearing in both SMODI
 
 <h1 align="center">What is Our Solution?</h1>
 
-The following figure shows a comparison between our proposed solution and existing methods, where <span style="color:lightgray">grey</span> shows suboptimal design:
+The following figure shows a comparison between our proposed solution and existing methods, where <span style="color:lightgray">gray</span> shows suboptimal design:
 
 ---|Geometric property of distributions | Distance metric | Matching Objects | Optimizing objective itself
 ---|---|---
