@@ -1,0 +1,132 @@
+\documentclass[11pt,letterpaper]{article}
+
+% https://www.nsf.gov/publications/pub_summ.jsp?ods_key=nsf20591
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}                                                      %%
+%%%%%%%%%% EXACT 1in MARGINS %%%%%%%                                   %%
+\setlength{\textwidth}{6.5in}     %%                                   %%
+\setlength{\oddsidemargin}{0in}   %% (It is recommended that you       %%
+\setlength{\evensidemargin}{0in}  %%  not change these parameters,     %%
+\setlength{\textheight}{9in}      %%  at the risk of having your       %%
+\setlength{\topmargin}{0in}       %%  proposal dismissed on the basis  %%
+\setlength{\headheight}{0in}      %%  of incorrect formatting!!!)      %%
+\setlength{\headsep}{0in}         %%                                   %%
+\setlength{\footskip}{.5in}       %%                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                   %%
+\newcommand{\required}[1]{\section*{\hfil #1\hfil}}                    %%
+\renewcommand{\refname}{\hfil References Cited\hfil}                   %%
+\bibliographystyle{plain}                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+%PUT YOUR MACROS HERE
+\usepackage{caption}
+\usepackage[svgnames]{xcolor}
+\definecolor{ocre}{RGB}{103,80,65}
+\usepackage[font={color=ocre, small},figurename=Fig.,labelfont={it}]{caption}
+\usepackage{lipsum}
+\usepackage{booktabs}
+\usepackage{times}
+\usepackage{fontspec}
+\usepackage{multirow}
+\setmainfont{Times New Roman}
+\usepackage{cite}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage[compact]{titlesec}         % you need this package
+\titlespacing{\section}{0pt}{0pt}{0pt} % this reduces space between (sub)sections to 0pt, for example
+\AtBeginDocument{%                     % this will reduce spaces between parts (above and below) of texts within a (sub)section to 0pt, for example - like between an 'eqnarray' and text
+  \setlength\abovedisplayskip{0pt}
+  \setlength\belowdisplayskip{0pt}}
+  
+% \titleformat*{\section}{\fontsize{12}{14}\selectfont}
+% \titleformat*{\subsection}{\fontsize{11}{13}\selectfont}
+\titleformat{\section}
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesection}{1em}{}
+  
+\titleformat{\subsection}
+  {\normalfont\fontsize{11}{11}\bfseries}{\thesubsection}{1em}{}
+%\linespread{.9}
+%\usepackage{hyperref}
+\usepackage[hyphens]{url}
+% \usepackage[hidelinks]{hyperref}
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     filecolor=magenta,      
+%     urlcolor=cyan,
+%     breaklinks=true,
+% }
+\usepackage{xcolor}
+\PassOptionsToPackage{hyphens}{url}\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,
+  citecolor=citecolor,linkcolor=blue,bookmarks=false]{hyperref}
+\definecolor{citecolor}{RGB}{34,139,34}%{0,100,0}%
+\newcommand{\blue}{\color{blue}}
+\usepackage[numbers]{natbib}
+\newcommand{\yuxiong}[1]{\textcolor{blue}{[Yuxiong: #1]}}
+\usepackage{cleveref}
+
+%%%%
+%\setsecnumdepth{subsubsection}
+%\settocdepth{subsubsection}
+%\setlength{\cftsubsectionindent}{5.25em}
+\usepackage{lipsum}
+% \usepackage[colorlinks=true,linkcolor=red]{hyperref}
+% \usepackage[noabbrev,capitalize]{cleveref}
+
+\crefname{page}{page}{page}
+\crefformat{specialsubsubsection}{#2subsection~``#1''#3}
+
+\newcounter{specialsubsubsection}
+\makeatletter
+\newcommand{\specialsubsubsection}[1]{%
+  \subsection*{#1}%
+  \addcontentsline{toc}{subsubsection}{#1}%
+  \refstepcounter{specialsubsubsection}%
+  \def\cref@currentlabel{[specialsubsubsection][\arabic{specialsubsubsection}][]#1}%
+  \def\@currentlabelname{#1}%
+}
+\makeatother
+%%%
+
+%\pagestyle{empty}
+\setcounter{page}{1} 
+\urlstyle{same}
+
+\newcommand{\boldhead}[1]{\vspace{0.05in}\noindent \textbf{#1}:}
+
+\makeatletter
+\def\Demo{%
+  \def\Ginclude@graphics##1{%
+      \rule{\@ifundefined{Gin@@ewidth}{150pt}{\Gin@@ewidth}}%
+      {\@ifundefined{Gin@@eheight}{100pt}{\Gin@@eheight}}}}
+\makeatother
+
+\begin{document}
+
+
+%%%%%%%%% PROPOSAL -- 15 pages (including Prior NSF Support)
+
+
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{empty}
+
+\required{\vspace{-10mm}\begin{center}Open-Vocabulary Image Segmentation with Self-Supervision\end{center}}
+\vspace{-2mm}
+\centerline{PI: Yuxiong Wang (yxw@illinois.edu)}\vspace{1ex}
+\vspace{-2mm}
+\centerline{Department of Computer Science, University of Illinois Urbana-Champaign}
+
+\vspace{4mm}
+\input{summary}
+
+
+\end{document}
