@@ -1,0 +1,112 @@
+---
+layout: post
+title:  "Reinforcement Learning Gradients as Vitamin for Online Finetuning Decision Transformers" 
+date:   2024-10-16 00:30:00 -0700
+categories: jekyll update
+author: Kai Yan,? https://kaiyan289.github.io; Alexander G. Schwing,? https://alexander-schwing.de; Yu-Xiong Wang? https://yxw.web.illinois.edu
+---
+
+<script
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript">
+</script>
+
+<h4 align="center"> NeurIPS, 2024 <font color="red"><b>(Spotlight)</b></font></h4>  
+<h4 align="center"> Vancouver, Canada </h4>  
+<hr>
+<h4 align="center"> PDF | <a href="https://github.com/KaiYan289/RL_as_Vitamin_for_Online_Decision_Transformers">Code</a> | Poster | Slide | <a href="/bibtex/ODTTD3.txt">Bibtex</a></h4>
+
+<div class="quote"><p style='font-size:16pt'><i>
+Decision Transformers falter still,<br>
+When fine-tuned on low-return will.<br>
+We prove the cause, the gap revealed,<br>
+A pill of TD3, and it's healed.</i></p><p align="right">- GPT-4o</p></div> 
+
+<img src="/assets/ODTTD3-teaser.png"> 
+
+<br>
+<h1 align="center">How Does Decision Transformers Falter?</h1> 
+
+Inspired by recent success of autoregressive training, Decision transformers is proposed as a novel RL paradigm where it sees state, action and Return-To-Go (RTG) trajectories as a sequence to predict. However, there has been surprisingly few work that tries to finetune such algorithm with online data.
+
+**Online Decision Transformer (ODT) [1],** the most prominent solution,  sets a high, target RTG and let the agent generate trajectories conditioning on such RTG to get higher return data. However, if the pretrain data all have low return (illustrated above as grey points), then the policy for generating trajectories with high RTG (corresponds to the reward peak in the middle) will be wildly out-of-distribution; in such case, the learned policy conditioning on high RTG (the dotted line on the left) will not lead to better performance.
+<br>
+<h1 align="center">Can we State This in a Theoretical Framework?</h1>
+
+The intuition of proving the falter is to **establish connections between the extent of out-of-distribution for the target RTG and the final performance.** To do this, we use the *tight* performance bound for policy $$\pi$$ proved by Brandforbrener et al. [2]:
+
+<p align="center">$$\text{Target RTG} - \mathbb{E}_{\pi}[\text{actual RTG}] \leq \epsilon(\frac{1}{\alpha_f}+2)H^2$$</p>,
+
+where $$\epsilon$$ is the environment noise, $$H$$ is the episode horizon, and $$\alpha_f$$ is the probability of achieving target RTG. By Chebyshev inequality, we prove that $$\frac{1}{\alpha_f}$$ grows **superlinearly** with respect to target RTG; i.e., $$\epsilon(\frac{1}{\alpha_f}+2)H^2$$ grows faster than target RTG. Thus, to ensure tightness, the $$\mathbb{E}_{\pi}[\text{actual RTG}]$$ term must decrease to fit in.
+
+<br>
+<h1 align="center">What is the Cure Then?</h1>
+
+As we mentioned, out-of-distribution target RTG is the reason why ODT struggles with low-return offline data. As we have no oracle to bring trajectories with target RTG in sample distributions, we should consider *local* improvement with respect to RTG; i.e., get $$\frac{\partial \text{RTG}}{\partial a}$$ for the current policy. This is infeasible for ODT since the actor gives non-invertible $$\frac{\partial a}{\partial \text{RTG}}$$; however, such gradient can be provided by **traditional RL, e.g., TD3**. 
+
+<details>
+<summary>Performance of ODT, ODT+DDPG and DDPG on examples illustrated above</summary>
+<center>
+<img src="/assets/reward.png" width="400">
+</center>
+</details>
+<details>
+<summary>Policy learned by ODT (grey to black) vs. ODT+DDPG (red to brown) on examples illustrated above</summary>
+<center>
+<img src="/assets/ODT-actor.png" width="400">
+<br>
+In the example illustrated above, 0 is the reward peak, while offline data are all on the two imbalanced feet of the return hill. ODT+DDPG finds the hidden reward peak while ODT fails.
+</center>
+</details>
+<br>
+<br>
+<h1 align="center">Performance</h1>
+
+We test our methods on multiple scenarios, including MuJoCo environments, Adroit environments, Antmaze environments and Maze2d environments, all from D4RL [3].
+
+<details open>
+	<summary>Adroit Environments ({pen, hammer, door, relocate}x{expert, human, cloned})</summary>    
+                 <img src="/assets/ODTTD3-res/plot-0516-Adroit.png">
+                <p align="center">Reward curve (Higher is Better)</p>
+                   <br>
+                 <img src="/assets/ODTTD3-res/rliable-adroit-finalv2.png">
+                <p align="center">Statistics by the rliable (<a href="https://github.com/google-research/rliable">https://github.com/google-research/rliable</a>) library with 10000 bootstrap replications. The x-axes are normalized scores, and IQM stands for InterQuatile Mean. Optimality gap is (100 - expectation of normalized reward capped at 100).</p>
+</details>
+
+<details>
+	<summary>MuJoCo Environments ({hopper, halfcheetah, walker2d, ant}x{medium, medium-replay, random})</summary>
+                 <img src="/assets/ODTTD3-res/plot-0516-mujoco.png">
+                <p align="center">Reward curve (Higher is Better)</p>
+                 <br>
+                 <img src="/assets/ODTTD3-res/rliable-normal-finalv2.png">
+                <p align="center">Statistics by the rliable (<a href="https://github.com/google-research/rliable">https://github.com/google-research/rliable</a>) library with 10000 bootstrap replications. The x-axes are normalized scores, and IQM stands for InterQuatile Mean. Optimality gap is (100 - expectation of normalized reward capped at 100).</p>
+</details>
+
+<details>
+	<summary>Antmaze Environments (umaze, umaze-diverse, medium-play, medium-diverse)</summary>
+                 <img src="/assets/ODTTD3-res/plot-0516-Antmaze.png">
+                <p align="center">Reward curve (Higher is Better)</p>
+                 <br>
+                 <img src="/assets/ODTTD3-res/rliable-antmaze-finalv2.png">
+                <p align="center">Statistics by the rliable (<a href="https://github.com/google-research/rliable">https://github.com/google-research/rliable</a>) library with 10000 bootstrap replications. The x-axes are normalized scores, and IQM stands for InterQuatile Mean. Optimality gap is (100 - expectation of normalized reward capped at 100).</p>
+</details>
+
+<details>
+	<summary>Maze2D Environments (open, umaze, medium, large)</summary>
+                 <img src="/assets/ODTTD3-res/plot-0516-maze.png">
+                <p align="center">Reward curve (Higher is Better)</p>
+                 <br>
+                 <img src="/assets/ODTTD3-res/rliable-maze2d-finalv2.png">
+                <p align="center">Statistics by the rliable (<a href="https://github.com/google-research/rliable">https://github.com/google-research/rliable</a>) library with 10000 bootstrap replications. The x-axes are normalized scores, and IQM stands for InterQuatile Mean. Optimality gap is (100 - expectation of normalized reward capped at 100).</p>
+</details>
+<br>
+
+We have also conducted extensive ablations in our paper, including context length, RL gradient coefficient tuning, environments with delayed reward, longer training process, using recurrent critic, other possible exploration improvement techniques and ablations on architecture.
+<br>
+<h1 align="center">Related Work</h1>
+
+[1] Q. Zheng, A. Zhang, A. Grover. Online Decision Transformer. In ICML, 2022.
+
+[2] D. Brandfonbrener, A. Bietti, J. Buckman, R. Laroche and J. Bruna. When does return-conditioned supervised learning work for offline reinforcement learning? In NeurIPS, 2022. 
+
+[3] J. Fu, A. Kumar, O. Nachum, G. Tucker and S. Levine. D4RL: Datasets for Deep Data-Driven Reinforcement Learning. ArXiv, 2020.

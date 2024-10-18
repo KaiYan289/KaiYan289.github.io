@@ -14,7 +14,7 @@ author: Kai Yan,? https://kaiyan289.github.io; Alexander G. Schwing,? https://al
 <h4 align="center"> ICML, 2024</h4>  
 <h4 align="center"> Vienna, Austria </h4>  
 <hr>
-<h4 align="center"> <a href="https://arxiv.org/abs/2311.01331">PDF</a> | <a href="https://github.com/KaiYan289/PW-DICE/">Code</a> | Poster | Slide | <a href="/bibtex/PWDICE.txt">Bibtex</a></h4>
+<h4 align="center"> <a href="https://arxiv.org/abs/2311.01331">PDF</a> | <a href="https://github.com/KaiYan289/PW-DICE/">Code</a> | <a href="/assets/kai-poster-24final.pdf">Poster</a> | <a href="/assets/PW-DICE-pre-v2.pptx">Slide</a> | <a href="/bibtex/PWDICE.txt">Bibtex</a></h4>
 
 
 

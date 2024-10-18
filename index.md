@@ -28,7 +28,7 @@ line-height: 0.8;
 </table>
 
 <div class="quote"><p><i>"We choose to go to the Moon in this decade and do the other things, not because they're easy, but because they're hard."<br> -- John F. Kennedy, 1962</i></p></div> 
-
+ 
 # Who am I?
 
 Hi there! I am Kai Yan (颜开 in Chinese), a second-year Ph.D. student in the Department of Computer Science at University of Illinois Urbana-Champaign (UIUC), co-advised by <a href="https://alexander-schwing.de/" title="Prof. Alex G. Schwing">Prof. Alexander Schwing</a> and <a href="https://yxw.web.illinois.edu/" title="Prof. Yu-Xiong Wang">Prof. Yu-Xiong Wang</a>. 
@@ -47,7 +47,7 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In *ICML*, 2024. <a href="https://arxiv.org/abs/2311.01331" title="PW-DICE">[PDF]</a><a href="/jekyll/update/2024/06/08/PWDICE">[Website]</a> 
 
-**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. A Simple Solution for Offline Imitation from Observations and Examples with Possibly Incomplete Trajectories. In *NeurIPS*, 2023. <a href="/assets/TAILO.pdf" title="Simple LfO">[PDF]</a><a href="/jekyll/update/2023/10/06/TAILO">[Website]</a> 
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. A Simple Solution for Offline Imitation from Observations and Examples with Possibly Incomplete Trajectories. In *NeurIPS*, 2023. <a href="/assets/TAILO.pdf" title="Simple LfO">[PDF]</a><a href="/jekyll/update/2023/10/06/TAILO">[Website]</a>
 
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. CEIP: Combining Explicit and Implicit Priors for Reinforcement Learning with Demonstrations. In *NeurIPS*, 2022. <a href="https://arxiv.org/abs/2210.09496" title="RL with Demonstrations">[PDF]</a><a href="/jekyll/update/2022/10/25/CEIP">[Website]</a>
 

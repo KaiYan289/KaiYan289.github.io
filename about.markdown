@@ -6,7 +6,7 @@ permalink: /about/
 
 <br/>
 
-*I express my heartfelt gratitude to the mentors of my research career, Prof. Alexander Schwing, Prof. Yu-Xiong Wang, Dr. Jie Yan, Dr. Chuan Luo, Prof. Changliu Liu and Prof. Zongqing Lu (sorted by time), as well as all the wonderous people I have met at UIUC, 
+*I express my heartfelt gratitude to the mentors of my research career, Dr. Jiecao Chen, Prof. Alexander Schwing, Prof. Yu-Xiong Wang, Dr. Jie Yan, Dr. Chuan Luo, Prof. Changliu Liu and Prof. Zongqing Lu (sorted by time), as well as all the wonderous people I have met at ByteDance, UIUC, 
 MSRA, CMU and PKU. I learned all these tips from my experiences working with you.*
 
 
@@ -527,6 +527,20 @@ class RepeatedDataset:
 150. If your RL agent is diverging due to strange reasons, try layernorm on the critic. However, adding layernorm to the critic is not always the best choice; sometimes (e.g. mujoco) it slows down the learning process, but sometimes (e.g. adroit) it is magical.
 
 151. If you are wondering how people solve antmaze: they (CQL, IQL) sub reward by 1, making a sparse reward env becoming a dense one.
+
+152. Make sure that you use \left and \right before the parentheses for complicated contents in the formula (e.g. \\exp\\left(\\frac\{a\}\{b\}\\right) ).
+
+153. Remember that "by \[4\]" is not correct in writing papers; instead, you should write "by xxx et al. \[4\]".
+
+154. Remember to use \eqref instead of \ref for equations.
+
+155. Remember to use vector graph (i.e., pdf) for figures in the paper.
+
+156. When you are updating posts in Jekyll, make sure that you add posts from a past point of time. The future posts will be skipped by Jekyll. To check this, use jekyll build --verbose.
+
+157. Remember that openreview requires "\_" for latex formulas that are "_" in overleaf. https://docs.openreview.net/reference/openreview-tex/common-issues-with-latex-code-display
+
+158. Check for the success file when you use hdfs to download items.
 
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)

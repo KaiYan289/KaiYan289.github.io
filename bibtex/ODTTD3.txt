@@ -1,0 +1,6 @@
+@inproceedings{kai-TD3ODT2024,
+  title = {Reinforcement Learning Gradients as Vitamin for Online Finetuning Decision Transformers},
+  author = {Kai Yan and Alexander G. Schwing and Yu-Xiong Wang},
+  booktitle = {Neural Information Processing Systems (NeurIPS)},
+  year = {2024},
+}
