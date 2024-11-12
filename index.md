@@ -41,7 +41,7 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
  
 # Publications 
 
-**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Reinforcement Learning Gradients as Vitamin for Online Finetuning Decision Transformers. In *NeurIPS*, 2024. <b style='color:red;'>(Spotlight)</b><a href="/jekyll/update/2024/10/16/ODTTD3">[Website]</a>
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Reinforcement Learning Gradients as Vitamin for Online Finetuning Decision Transformers. In *NeurIPS*, 2024. <b style='color:red;'>(Spotlight)</b><a href="https://arxiv.org/abs/2410.24108">[PDF]</a><a href="/jekyll/update/2024/10/16/ODTTD3">[Website]</a>
 
 Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <b style='color:red;'>(Github >630 Stars)</b><a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://lapisrocks.github.io/LanguageAgentTreeSearch/">[Website]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[LangChain link]</a><a href="https://discord.com/channels/1153072414184452236/1153072414184452239/1275319956711411763">[Invited Talk]</a>
 

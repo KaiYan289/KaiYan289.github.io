@@ -14,7 +14,7 @@ author: Kai Yan,? https://kaiyan289.github.io; Alexander G. Schwing,? https://al
 <h4 align="center"> NeurIPS, 2024 <font color="red"><b>(Spotlight)</b></font></h4>  
 <h4 align="center"> Vancouver, Canada </h4>  
 <hr>
-<h4 align="center"> PDF | <a href="https://github.com/KaiYan289/RL_as_Vitamin_for_Online_Decision_Transformers">Code</a> | Poster | Slide | <a href="/bibtex/ODTTD3.txt">Bibtex</a> | <a href="/assets/breakdown_rliable.rar">Supplementary Figures</a></h4>
+<h4 align="center"> <a href="https://arxiv.org/abs/2410.24108">PDF</a> | <a href="https://github.com/KaiYan289/RL_as_Vitamin_for_Online_Decision_Transformers">Code</a> | <a href="/assets/kai-poster-24-final.pdf">Poster</a> | <a href="/assets/NeurIPS24-kai-revised.pptx">Slide</a> | <a href="/bibtex/ODTTD3.txt">Bibtex</a> | <a href="/assets/breakdown_rliable.rar">Supplementary Figures</a></h4>
 
 <div class="quote"><p style='font-size:16pt'><i>
 Decision Transformers falter still,<br>
