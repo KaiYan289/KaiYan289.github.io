@@ -31,7 +31,7 @@ line-height: 0.8;
  
 # Who am I?
 
-Hi there! I am Kai Yan (颜开 in Chinese), a second-year Ph.D. student in the Department of Computer Science at University of Illinois Urbana-Champaign (UIUC), co-advised by <a href="https://alexander-schwing.de/" title="Prof. Alex G. Schwing">Prof. Alexander Schwing</a> and <a href="https://yxw.web.illinois.edu/" title="Prof. Yu-Xiong Wang">Prof. Yu-Xiong Wang</a>. 
+Hi there! I am Kai Yan (颜开 in Chinese), a fourth-year Ph.D. student in the Department of Computer Science at University of Illinois Urbana-Champaign (UIUC), co-advised by <a href="https://alexander-schwing.de/" title="Prof. Alex G. Schwing">Prof. Alexander Schwing</a> and <a href="https://yxw.web.illinois.edu/" title="Prof. Yu-Xiong Wang">Prof. Yu-Xiong Wang</a>. 
 Prior to that, I get my Bachelor of Science degree in computer science at Peking University with a *Summa Cum Laude* and a national scholarship. In my high school years, I learned informatics and got a silver award in the National Olympiad of Informatics (NOI 2016).
 
 My research interest is **deep learning for better decision making**, which is mainly **deep reinforcement learning and imitation learning**. I have conducted research in the following fields: 1) optimization with prediction, 
