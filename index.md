@@ -55,6 +55,10 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 
 # Preprints
 
+**Kai Yan**, Zhan Ling, Kang Liu, Yifan Yang, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. MIR-Bench: Benchmarking LLM's Long-Context Intelligence via Many-Shot In-Context Inductive Reasoning. <a href="https://arxiv.org/abs/2502.09933" title="MIR-Bench">[PDF]</a>
+
+Zhan Ling, Kang Liu, **Kai Yan**, Yifan Yang, Weijian Lin, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. LongReason: A Synthetic Long-Context Reasoning Benchmark via Context Expansion. <a href="https://arxiv.org/abs/2501.15089" title="LongReason">[PDF]</a>
+
 **Kai Yan\***, Zhenggang Tang\*, Liting Sun, Wei Zhan, Changliu Liu. A Microscopic Pandemic Simulator for Pandemic Prediction Using Scalable Million-Agent Reinforcement Learning. *arXiv:2108.06589*, 2021.<a href="https://arxiv.org/abs/2108.06589" title="MARL">[PDF]</a> 
 
 **Kai Yan\***, Yunlong Lu\*. Algorithms in Multi-Agent Systems: A Holistic Perspective from Reinforcement Learning and Game Theory. *arXiv:2001.06487*, 2020. <a href="https://arxiv.org/abs/2001.06487" title="survey">[PDF]</a>
