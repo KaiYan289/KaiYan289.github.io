@@ -56,7 +56,7 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 # Preprints
 
 
-**Kai Yan**, Zhan Ling, Kang Liu, Yifan Yang, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. MIR-Bench: Benchmarking LLM's Long-Context Intelligence via Many-Shot In-Context Inductive Reasoning. In *ICLR Workshop on Reasoning and Planning for Large Language Models*, 2025. <a href="https://arxiv.org/abs/2502.09933" title="MIR-Bench">[PDF]</a><a href=https://github.com/KaiYan289/MIR-Bench title="webpage">[Website]</a><a href="https://huggingface.co/datasets/kaiyan289/MIR-Bench" title="dataset">[HuggingFace]</a>
+**Kai Yan**, Zhan Ling, Kang Liu, Yifan Yang, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. MIR-Bench: Benchmarking LLM's Long-Context Intelligence via Many-Shot In-Context Inductive Reasoning. In *ICLR Workshop on Reasoning and Planning for Large Language Models*, 2025. <a href="https://arxiv.org/abs/2502.09933" title="MIR-Bench">[PDF]</a><a href="https://github.com/KaiYan289/MIR-Bench" title="webpage">[Website]</a><a href="https://huggingface.co/datasets/kaiyan289/MIR-Bench" title="dataset">[HuggingFace]</a>
 
 Zhan Ling, Kang Liu, **Kai Yan**, Yifan Yang, Weijian Lin, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. LongReason: A Synthetic Long-Context Reasoning Benchmark via Context Expansion. *arXiv:2501.15089*, 2025. <a href="https://arxiv.org/abs/2501.15089" title="LongReason">[PDF]</a>
 
