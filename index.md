@@ -55,7 +55,7 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 
 # Preprints
 
-**Kai Yan**, Yufei Xu, Zhengyin Du, Xuesong Yao, Zheyu Wang, Xiaowen Guo, Jiecao Chen. Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems? *arXiv:2504.00509*, 2025. <a href="https://arxiv.org/abs/2504.00509" title="RoR-Bench">[PDF]</a><a href="https://huggingface.co/papers/2504.00509" title="RoR-Bench">[HuggingFace]</a>
+**Kai Yan**, Yufei Xu, Zhengyin Du, Xuesong Yao, Zheyu Wang, Xiaowen Guo, Jiecao Chen. Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems? In *ICML 2025 Workshop on Reliable and Responsible Foundation Models*, 2025. <a href="https://arxiv.org/abs/2504.00509" title="RoR-Bench">[PDF]</a><a href="https://huggingface.co/papers/2504.00509" title="RoR-Bench">[HuggingFace]</a>
 
 Anjiang Wei, Tarun Suresh, Jiannan Cao, Naveen Kannan, Yuheng Wu, **Kai Yan**, Thiago S. F. X. Teixeira, Ke Wang, Alex Aiken. CodeARC: Benchmarking Reasoning Capabilities of LLM Agents for Inductive Program Synthesis. *arXiv: 2503.23145*, 2025. <a href="https://arxiv.org/abs/2503.23145" title="CodeARC">[PDF]</a><a href="https://huggingface.co/papers/2503.23145" title="CodeARC">[HuggingFace]</a>
 
