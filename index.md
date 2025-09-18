@@ -35,15 +35,19 @@ Hi there! I am Kai Yan (颜开 in Chinese), a fourth-year Ph.D. student in the D
 Prior to that, I get my Bachelor of Science degree in computer science at Peking University with a *Summa Cum Laude* and a national scholarship. In my high school years, I learned informatics and got a silver award in the National Olympiad of Informatics (NOI 2016).
 
 My research interest is **deep learning for better decision making**, which is mainly **deep reinforcement learning and imitation learning**. I have conducted research in the following fields: 1) optimization with prediction, 
-2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, 4) decision transformer, and 5) Large Language Model (LLM)+MCTS.
+2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, 4) decision transformer, and 5) Large Language Model (LLM) / Vision-Language Model (VLM) agents.
 
 You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://github.com/kaiyan289" title="github">Github</a> and <a href="https://www.linkedin.com/in/%E5%BC%80-%E9%A2%9C-18b7931b1/" title="Linkedin">Linkedin</a> here. Don't forget to check your daily tips at the top of this page!
  
 # Publications 
 
+**Kai Yan**, Zhan Ling, Kang Liu, Yifan Yang, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. MIR-Bench: Can Your LLM Recognize Complicated Patterns via Many-Shot In-Context Reasoning? (Previous name: MIR-Bench: Benchmarking LLM’s Long-Context Intelligence via Many-Shot In-Context Inductive Reasoning). In NeurIPS Datasets & Benchmark Track, 2025. <a href="https://arxiv.org/abs/2502.09933" title="MIR-Bench">[PDF]</a><a href="https://github.com/KaiYan289/MIR-Bench" title="webpage">[Website]</a><a href="https://huggingface.co/datasets/kaiyan289/MIR-Bench" title="dataset">[HuggingFace]</a>
+
+Anjiang Wei, Tarun Suresh, Jiannan Cao, Naveen Kannan, Yuheng Wu, **Kai Yan**, Thiago S. F. X. Teixeira, Ke Wang, Alex Aiken. CodeARC: Benchmarking Reasoning Capabilities of LLM Agents for Inductive Program Synthesis. In *COLM*, 2025. <a href="https://arxiv.org/abs/2503.23145" title="CodeARC">[PDF]</a><a href="https://huggingface.co/papers/2503.23145" title="CodeARC">[HuggingFace]</a>
+
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Reinforcement Learning Gradients as Vitamin for Online Finetuning Decision Transformers. In *NeurIPS*, 2024. <b style='color:red;'>(Spotlight)</b><a href="https://arxiv.org/abs/2410.24108">[PDF]</a><a href="/jekyll/update/2024/10/16/ODTTD3">[Website]</a>
 
-Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <b style='color:red;'>(Github >710 Stars)</b><a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://lapisrocks.github.io/LanguageAgentTreeSearch/">[Website]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[LangChain link]</a><a href="https://discord.com/channels/1153072414184452236/1153072414184452239/1275319956711411763">[Invited Talk]</a>
+Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models, In *ICML*, 2024. <b style='color:red;'>(Github >750 Stars)</b><a href="https://arxiv.org/abs/2310.04406" title="LATS">[PDF]</a><a href="https://lapisrocks.github.io/LanguageAgentTreeSearch/">[Website]</a><a href="https://andyz245.github.io/LanguageAgentTreeSearch/">[LangChain link]</a><a href="https://discord.com/channels/1153072414184452236/1153072414184452239/1275319956711411763">[Invited Talk]</a>
 
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Offline Imitation from Observation via Primal Wasserstein State Occupancy Matching. In *ICML*, 2024. <a href="https://arxiv.org/abs/2311.01331" title="PW-DICE">[PDF]</a><a href="/jekyll/update/2024/06/08/PWDICE">[Website]</a> 
 
@@ -57,10 +61,6 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 
 **Kai Yan**, Yufei Xu, Zhengyin Du, Xuesong Yao, Zheyu Wang, Xiaowen Guo, Jiecao Chen. Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems? In *ICML 2025 Workshop on Reliable and Responsible Foundation Models*, 2025. <a href="https://arxiv.org/abs/2504.00509" title="RoR-Bench">[PDF]</a><a href="https://huggingface.co/papers/2504.00509" title="RoR-Bench">[HuggingFace]</a>
 
-Anjiang Wei, Tarun Suresh, Jiannan Cao, Naveen Kannan, Yuheng Wu, **Kai Yan**, Thiago S. F. X. Teixeira, Ke Wang, Alex Aiken. CodeARC: Benchmarking Reasoning Capabilities of LLM Agents for Inductive Program Synthesis. *arXiv: 2503.23145*, 2025. <a href="https://arxiv.org/abs/2503.23145" title="CodeARC">[PDF]</a><a href="https://huggingface.co/papers/2503.23145" title="CodeARC">[HuggingFace]</a>
-
-**Kai Yan**, Zhan Ling, Kang Liu, Yifan Yang, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. MIR-Bench: Can Your LLM Recognize Complicated Patterns via Many-Shot In-Context Reasoning? (Previous name: MIR-Bench: Benchmarking LLM’s Long-Context Intelligence via Many-Shot In-Context Inductive Reasoning). In *ICLR Workshop on Reasoning and Planning for Large Language Models*, 2025. <a href="https://arxiv.org/abs/2502.09933" title="MIR-Bench">[PDF]</a><a href="https://github.com/KaiYan289/MIR-Bench" title="webpage">[Website]</a><a href="https://huggingface.co/datasets/kaiyan289/MIR-Bench" title="dataset">[HuggingFace]</a>
-
 Zhan Ling, Kang Liu, **Kai Yan**, Yifan Yang, Weijian Lin, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. LongReason: A Synthetic Long-Context Reasoning Benchmark via Context Expansion. *arXiv:2501.15089*, 2025. <a href="https://arxiv.org/abs/2501.15089" title="LongReason">[PDF]</a>
 
 **Kai Yan\***, Zhenggang Tang\*, Liting Sun, Wei Zhan, Changliu Liu. A Microscopic Pandemic Simulator for Pandemic Prediction Using Scalable Million-Agent Reinforcement Learning. *arXiv:2108.06589*, 2021.<a href="https://arxiv.org/abs/2108.06589" title="MARL">[PDF]</a> 
@@ -71,7 +71,7 @@ Zhan Ling, Kang Liu, **Kai Yan**, Yifan Yang, Weijian Lin, Ting-Han Fan, Lingfen
 
 # Working Experiences
 
-I am now working in the **Apple AIML team** mentored by <a href="https://www.philkr.net/" title="Phillip">Prof. Philipp Krähenbühl</a> since May 2025. 
+I worked in the **Apple AIML team** mentored by <a href="https://www.philkr.net/" title="Phillip">Prof. Philipp Krähenbühl</a> from May 2025 to Aug. 2025. 
 
 Prior to that, I worked in **ByteDance Seed** mentored by <a href="https://www.linkedin.com/in/jiecao-chen-65352266/" title="JieCao Chen">Dr. JieCao Chen</a> from Jun. 2024 to May 2025.
 
