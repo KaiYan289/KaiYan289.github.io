@@ -41,6 +41,8 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
  
 # Publications 
 
+**Kai Yan**, Yufei Xu, Zhengyin Du, Xuesong Yao, Zheyu Wang, Xiaowen Guo, Jiecao Chen. Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems? In *IJCNLP-AACL*, 2025. <a href="https://arxiv.org/abs/2504.00509" title="RoR-Bench">[PDF]</a><a href="https://huggingface.co/papers/2504.00509" title="RoR-Bench">[HuggingFace]</a>
+
 **Kai Yan**, Zhan Ling, Kang Liu, Yifan Yang, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. MIR-Bench: Can Your LLM Recognize Complicated Patterns via Many-Shot In-Context Reasoning? (Previous name: MIR-Bench: Benchmarking LLM’s Long-Context Intelligence via Many-Shot In-Context Inductive Reasoning). In *NeurIPS Datasets & Benchmarks Track*, 2025. <a href="https://arxiv.org/abs/2502.09933" title="MIR-Bench">[PDF]</a><a href="https://github.com/KaiYan289/MIR-Bench" title="webpage">[Website]</a><a href="https://huggingface.co/datasets/kaiyan289/MIR-Bench" title="dataset">[HuggingFace]</a>
 
 Anjiang Wei, Tarun Suresh, Jiannan Cao, Naveen Kannan, Yuheng Wu, **Kai Yan**, Thiago S. F. X. Teixeira, Ke Wang, Alex Aiken. CodeARC: Benchmarking Reasoning Capabilities of LLM Agents for Inductive Program Synthesis. In *COLM*, 2025. <a href="https://arxiv.org/abs/2503.23145" title="CodeARC">[PDF]</a><a href="https://huggingface.co/papers/2503.23145" title="CodeARC">[HuggingFace]</a>
@@ -58,8 +60,6 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 **Kai Yan**, Jie Yan, Chuan Luo, Liting Chen, Qingwei Lin and Dongmei Zhang. A Surrogate Objective Framework for Prediction+Optimization with Soft Constraints. In *NeurIPS*, 2021. <a href="https://arxiv.org/abs/2111.11358" title="Optimization">[PDF]</a>
 
 # Preprints
-
-**Kai Yan**, Yufei Xu, Zhengyin Du, Xuesong Yao, Zheyu Wang, Xiaowen Guo, Jiecao Chen. Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems? In *ICML 2025 Workshop on Reliable and Responsible Foundation Models*, 2025. <a href="https://arxiv.org/abs/2504.00509" title="RoR-Bench">[PDF]</a><a href="https://huggingface.co/papers/2504.00509" title="RoR-Bench">[HuggingFace]</a>
 
 Zhan Ling, Kang Liu, **Kai Yan**, Yifan Yang, Weijian Lin, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. LongReason: A Synthetic Long-Context Reasoning Benchmark via Context Expansion. *arXiv:2501.15089*, 2025. <a href="https://arxiv.org/abs/2501.15089" title="LongReason">[PDF]</a>
 
