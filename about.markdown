@@ -542,6 +542,502 @@ class RepeatedDataset:
 
 158. Check for the success file when you use hdfs to download items.
 
+159. You should be very careful when you are building a benchmark about data quality.
+
+160. If you are encountering problems such as "ValueError: Unable to create tensor, you should probably activate truncation and/or padding with 'padding=True' 'truncation=True' to have batched tensors with the same length. Perhaps your features (`labels` in this case) have excessive nesting (inputs type `list` where type `int` is expected)." but you are sure you processed it, check if it is the problem of your new dataset containing previous items that has not been processed. https://github.com/huggingface/transformers/issues/15505
+
+161. How to set up a language model for regression with transformer library: https://discuss.huggingface.co/t/how-to-set-up-trainer-for-a-regression/12994 (i.e. set up a single label for classification and set loss to be MSE).
+
+162. BitsandBytes seem ot handle the problem of bfloat16 vs. float by its own. When you are not using it to finetune LLMs, be very careful about the dtype of the parameters vs. data; there will be subtle errors. (In other words, you should check this if you met subtle errors in finetuning LLMs). 
+
+163. Remember that most BERT's context length is only 512 tokens!
+
+164. When you are using dmc2gym to finetune image-based RL environments on headless machine, you might meet the problem of X11 host error by glfw. Remember to set rendering with osmesa / egl!
+
+165. Remember to do pixel normalization (0 to 255 -> -1 to 1) when you are doing visual RL!
+
+166. Process reward models are not as beautiful as it seems, though it might be attractive for RL people - read deepseek R1 paper for details.
+
+167. Do not inject too many human-made rules in the early stages of LLM training pipeline (e.g. careful selecting data for pretraining), which might limit the final upper bound of the model.
+
+168. If you are using sglang or vllm, try to set --mem-fraction-static (sglang) / --gpu-memory-utilization (vllm) to 0.8 as a good starting point for both. You should not set this value too small for sglang (you can do this for vllm though it will be inefficient). Be sure to check whether there are zombie processes taking your GPU memories!
+
+169. This is wrong: df['input'] = str(df['input_output'].apply(lambda x: json.loads(x)['inputs'])); instead, you should use f['input_output'].apply(lambda x: json.loads(x)['outputs']).apply(lambda x: str(x)).
+
+170. Be sure to first backup any file that is possibly being written by the current running scripts when you are killing the script. You don't want your data to be corrupted!
+
+171. Be very careful when you are consistently writing logs in a github repo; if you keep writing it without configuring gitignore properly, you will see the running becomes slower and slower because of the github lfs tracker in the background.
+
+172. When trained on a particular task, even 7b small models can exhibit quite impressive performance. If you feel your model has low reward during RL on the task (even if it is fairly complicated), go and check your models.
+
+173. The best way to debug LLM training is to look at the output it produce.
+
+174. Be sure to check your config if you are using gradient checkpointing first when you got a GPU OOM error during training!
+
+175. Be very careful when you use numbers for the start of the name of a folder; be sure to check if there is any exec() that uses the folder name as a function (e.g. Berkeley function call leaderboard). Similarly, be very careful on the choice of "_" vs. "-".
+
+176. Pretrain determines the upper bound of a LLM, and RL makes the best out of the model. Do not apply too much man-made constraints in training data, especially in early training stages of LLM.
+
+177. There is some subtle bug with deepspeed zero with Qwen that causes nan. You might want to use FSDP instead.
+
+178. Always remember to check temperature if you are training LLM and find that its generalized result does not make sense.
+
+179. Add this to the end of ~/.bash_profile if you have trouble in tmux finding conda after installing it:
+```
+# If running bash
+if [ -n "$BASH_VERSION" ]; then
+    # Include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi 
+```
+
+180. There might be a generalization gap between rendered pictures and real-life pictures by VLM.
+
+181. A good way to debug whether the output discrepancy (at temperature 0) is caused by bug or hardware: check logits and raw input token / pixel values; try to curate a very small, homogenous dataset and look at the output. Oftentimes even with temperature=0, you cannot replicate everything due to GPU / precision / different package issues / using liger. But this usually just case 1-2% performance difference. Also, if you want to evaluate your model out of the transformer training loop, be careful if model.eval() is missing.
+
+182. It is always a good idea to double-check whether the distribution and aggregation of your dataset is correct especially when you are evaluating on multiple GPUs. A good way to do this is to output the total count of items.
+
+183. DO NOT train a model with flashattention but load and evaluate it and use regular SDPA attention. This could cause very large performance difference!
+
+184. How to aggregate result when using torch.distributed run:
+
+```
+torch.distributed.barrier() # can also use "with barrier_guard(before=True, after=True):""
+local_rollouts = self.collect_rollouts(iteration, is_evaluation=True)
+torch.distributed.barrier()
+all_rollouts = [None] * torch.distributed.get_world_size()
+torch.distributed.all_gather_object(all_rollouts, local_rollouts)
+if rank_zero_only(self.rank):
+    all_rollouts = list(itertools.chain.from_iterable(all_rollouts))
+    self.log_metrics(all_rollouts, is_ood_eval=True)
+```
+
+185. How to debug multi-GPU LLM job:
+     1) Follow point 181 and 182.
+     2) check if the temperature is set to 0 / do_sample is False. there could be minor difference even with these, but the performance should not be wildly different.
+     3) check point 183.
+     4) check model precision and quantization: are you using float32 or bfloat16?
+     5) check input sizes: is it too large? (e.g. too large image for vlm)?
+     6) output input token and output logits for a single data for comparison
+     7) Be very careful to check whether your result is properly aggregated across GPUs instead of showing result only from one GPU.
+     8) check padding length. This should not lead to that different performance but still worth checking.
+     9) check if your model.eval() is on.
+     10) check environment version (e.g. version of python and transformer).
+     11) A 1-2% performance difference is OK; a 5% performance difference is alarming.
+
+186. Your git merge only works with local target branch. Make sure you have git pulled before you merge.
+
+187. How to build your custom evaluation over HF evaluate(): (+deepspeed zero2)
+```
+class QwenSFTTrainer(Trainer):
+    """
+    def training_step(self, model, inputs, num_items=None):
+        # Run standard training step
+        model.train()
+        inputs = self._prepare_inputs(inputs)
+
+        with self.compute_loss_context_manager():
+            loss = self.compute_loss(model, inputs)
+
+        if self.args.gradient_accumulation_steps > 1:
+            loss = loss / self.args.gradient_accumulation_steps
+
+        loss.backward()
+
+        # Log gradient stats
+        max_grad = 0.0
+        has_nan = False
+        has_inf = False
+
+        for name, param in model.named_parameters():
+            if param.grad is not None:
+                grad = param.grad
+                if torch.isnan(grad).any():
+                    print(f"[WARNING] NaN in gradients of parameter: {name}")
+                    has_nan = True
+                if torch.isinf(grad).any():
+                    print(f"[WARNING] Inf in gradients of parameter: {name}")
+                    has_inf = True
+                param_max = torch.max(torch.abs(grad)).item()
+                if param_max > max_grad:
+                    max_grad = param_max
+
+        print(f"[Max Gradient Element] {max_grad:.6f} | NaN: {has_nan} | Inf: {has_inf}")
+
+        return loss.detach()
+    """
+    def __init__(self, *args, **kwargs):
+        self.image_path = kwargs.pop("image_path", None)
+        super(QwenSFTTrainer, self).__init__(*args, **kwargs)
+        #print("args:", args)
+        #print("kwargs:", kwargs)
+        training_args = kwargs.get("args", None)
+        # print("training_Args:", training_args, "image_path:", self.image_path)
+        self.experiment_name = getattr(training_args, "experiment_name", "trained")
+        if training_args is not None:
+            self.eval_reward_data_path = getattr(training_args, "eval_reward_data_path", None)
+        else:
+            self.eval_reward_data_path = None
+        with open(self.eval_reward_data_path, "r") as f:
+            self.eval_reward_data = json.load(f)
+            # print(self.eval_reward_data_path, str(self.eval_reward_data[:100]))
+            if training_args.override_system_prompt != 'no':
+                with open(training_args.override_system_prompt, "r") as f:
+                    self.system_prompt = f.read()
+                    print("system prompt overrided!")
+            else: self.system_prompt = self.eval_reward_data['system_prompt']
+            self.eval_reward_data = self.eval_reward_data['data']# [:BS*N_GPU]
+            # assert len(self.eval_reward_data) == 256, "Error!"
+            keys = self.eval_reward_data[0].keys()
+            self.eval_reward_data = {k: [str(self.eval_reward_data[i][k]) for i in range(len(self.eval_reward_data))] for k in ['ground_truth_location', 'answer', 'user_prompt', 'partial_reward_perceive', 'type', 'image_path', 'tag']}
+            self.eval_reward_data = Dataset.from_dict(self.eval_reward_data)
+        
+
+    def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix: str="eval"):
+        metrics = super().evaluate(eval_dataset, ignore_keys=ignore_keys, metric_key_prefix=metric_key_prefix)
+        
+        # Create distributed sampler for proper data sharding across GPUs
+        # Use the same pattern as HuggingFace Trainer's _get_eval_sampler
+        if self.args.local_rank != -1:  # Distributed training
+            sampler = torch.utils.data.DistributedSampler(
+                self.eval_reward_data,
+                num_replicas=self.args.world_size,
+                rank=self.args.process_index if hasattr(self.args, 'process_index') else self.args.local_rank,
+                shuffle=False,
+            )
+        else:
+            sampler = torch.utils.data.SequentialSampler(self.eval_reward_data)
+        
+        custom_eval_dataloader = DataLoader(
+            self.eval_reward_data,
+            batch_size=BS,
+            sampler=sampler,
+            collate_fn=list_data_collator,
+            drop_last=False,
+            num_workers=self.args.dataloader_num_workers,
+            pin_memory=self.args.dataloader_pin_memory,
+        )
+        
+        # For DeepSpeed, we don't need to prepare the dataloader with accelerator
+        # Just move it to the correct device if needed
+        
+        # Debug info
+        num_batches_per_gpu = len(custom_eval_dataloader)
+        if hasattr(sampler, '__len__'):
+            num_samples_per_gpu = len(sampler)
+        else:
+            num_samples_per_gpu = len(self.eval_reward_data)
+            
+        if self.args.local_rank <= 0:  # Print only from main process
+            print("Starting custom evaluation on all GPUs...")
+        
+        print(f"GPU {self.args.local_rank}: "
+              f"Full dataset size = {len(self.eval_reward_data)}, "
+              f"Samples on this GPU = {num_samples_per_gpu}, "
+              f"Batches on this GPU = {num_batches_per_gpu}")
+        
+        # Run evaluation on ALL processes (each GPU processes its shard)
+        custom_metrics = eval_reward_withCI(
+            custom_eval_dataloader, 
+            self.model, 
+            self.tokenizer, 
+            system_prompt=self.system_prompt, 
+            global_step=self.state.global_step, 
+            image_path=self.image_path, 
+            name_prefix=self.experiment_name
+        )
+        
+        # Add prefix to metrics
+        custom_metrics_prefixed = {f"{metric_key_prefix}/{k}": v for k, v in custom_metrics.items()}
+        
+        # Convert metrics to tensors and aggregate across GPUs
+        if self.args.local_rank != -1:  # Only aggregate in distributed setting
+            aggregated_metrics = {}
+            
+            for k, v in custom_metrics_prefixed.items():
+                if isinstance(v, (int, float)):
+                    # Convert to tensor on the correct device
+                    if hasattr(self.model, 'device'):
+                        device = self.model.device
+                    elif torch.cuda.is_available():
+                        device = torch.device(f'cuda:{self.args.local_rank}')
+                    else:
+                        device = torch.device('cpu')
+                        
+                    tensor_val = torch.tensor(float(v), device=device, dtype=torch.float32)
+                    
+                    # All-reduce across all processes
+                    if "count" in k.lower() or "total" in k.lower():
+                        # Sum for count/total metrics
+                        torch.distributed.all_reduce(tensor_val, op=torch.distributed.ReduceOp.SUM)
+                    else:
+                        # Average for other metrics
+                        torch.distributed.all_reduce(tensor_val, op=torch.distributed.ReduceOp.SUM)
+                        tensor_val /= self.args.world_size
+                    
+                    aggregated_metrics[k] = tensor_val.item()
+                else:
+                    # For non-numeric metrics, just use the value from rank 0
+                    aggregated_metrics[k] = v
+            
+            # Synchronize all processes
+            torch.distributed.barrier()
+            
+        else:
+            # Single GPU case
+            aggregated_metrics = custom_metrics_prefixed
+        
+        # Log only from the main process (rank 0)
+        if self.args.local_rank <= 0:
+            print("Aggregated custom metrics:", aggregated_metrics)
+            self.log(aggregated_metrics)
+        
+        # Update the main metrics dictionary
+        metrics.update(aggregated_metrics)
+        
+        return metrics
+```
+
+188. Be careful with single element and list of elements in datasets. For example, you have
+
+```
+allowed = set(allowed_list)
+ds_sub = ds.filter(
+    lambda batch: [v in allowed for v in batch["label"]],
+    batched=True,
+    num_proc=4,        # adjust to CPU cores
+)
+```
+
+for num_proc>1 but 
+
+```
+ds_sub = ds.filter(lambda ex: ex["label"] in allowed)
+```
+
+for single element.
+
+189. Code for retrieving point cloud from image and mask: (remember to check whether the "default direction" is \[0, 0, 1\] or \[0, 0, -1\]!)
+
+```
+def run_custom(self, image_filename, image, masks, output_dir):
+        import math
+        import numpy as np
+        import os
+        import cv2
+        from pathlib import Path
+        import open3d as o3d
+
+        scene_pcd, depth_map_np, focal_val, extrinsic_1, intrinsic_1 = self.create_point_cloud_from_model(image) # PIL image
+        original_points = np.asarray(scene_pcd.points)
+        #print("extrinsic:", extrinsic_1)
+        R, t = extrinsic_1[0, :3, :3].cpu().numpy(), extrinsic_1[0, :3, 3].cpu().numpy()
+        camera_position = -R.T @ t
+        camera_lookat = (R.T @ np.array([[0.0], [0.0], [1.0]])).reshape(-1)
+        K = intrinsic_1[0].cpu().numpy() # The 3x3 intrinsic matrix
+        point_cloud_filepaths = []
+
+        points = np.asarray(scene_pcd.points)   # shape (N, 3)
+        colors = np.asarray(scene_pcd.colors)   # shape (N, 3)
+
+        output_pointcloud_dir = os.path.join(output_dir, "pointclouds")
+        Path(output_pointcloud_dir).mkdir(parents=True, exist_ok=True)
+
+
+        W, H = image.size
+        K_use = K.copy()
+        
+        Hm, Wm = depth_map_np.shape
+        sx, sy = W / Wm, H / Hm
+        K_use[0,0] *= sx          # fx
+        K_use[1,1] *= sy          # fy
+        K_use[0,2] *= sx          # cx
+        K_use[1,2] *= sy          # cy
+        
+        
+        print("==================")
+        for idx, mask_img in enumerate(masks):
+            mask_array = np.array(mask_img, dtype=np.uint8) # 255 * np.ones_like(mask_img, dtype=np.uint8) #
+            print(f"image size: ({W}, {H}), mask array: {mask_array.shape}, depth map: {depth_map_np.shape}")
+            if mask_array.ndim != 2: continue
+
+            if (mask_array.ndim == 2) and ((mask_array.shape[0] != H) or (mask_array.shape[1] != W)): # masks is a list of 2D array (H, W)
+                print("resizing...")
+                mask_array = cv2.resize(mask_array, (W, H), interpolation=cv2.INTER_NEAREST)
+            
+            else: print("not resizing")
+
+            p_cam = (R @ original_points.T + t[:, np.newaxis]).T
+            # Project points from camera to image coordinates
+            p_img = (K_use @ p_cam.T).T # Shape: (N, 3)
+            print("p_img:", p_img.shape, "K:", K, "K_use:", K_use, "R:", R, "t:", t)
+
+            valid_depth_indices = p_img[:, 2] > 0
+            u = p_img[valid_depth_indices, 0] / p_img[valid_depth_indices, 2]
+            v = p_img[valid_depth_indices, 1] / p_img[valid_depth_indices, 2]
+
+            # Check which points fall inside the mask
+            # Keep only points that project within the image boundaries
+
+            bounds_indices = (u >= 0) & (u < W) & (v >= 0) & (v < H)
+
+            # Get the integer pixel coordinates for valid points
+            u_int = u[bounds_indices].astype(int)
+            v_int = v[bounds_indices].astype(int)
+
+            original_valid_indices = np.where(valid_depth_indices)[0][bounds_indices]
+
+            # Look up the mask values at the projected coordinates
+            mask_values = mask_array[v_int, u_int]
+
+            # The final indices are where the mask is non-zero
+            valid_mask_indices = original_valid_indices[mask_values.astype(bool)]
+
+            if len(valid_mask_indices) == 0:
+                print(f"[WARNING] Mask {idx+1} produced no valid points, skipping.")
+                continue
+
+            masked_points = points[valid_mask_indices]
+            masked_colors = colors[valid_mask_indices]
+            if masked_points.size == 0:
+                print(f"[WARNING] No points left after indexing for mask {idx+1}, skipping.")
+                continue
+
+            masked_pcd = o3d.geometry.PointCloud()
+            masked_pcd.points = o3d.utility.Vector3dVector(masked_points)
+            masked_pcd.colors = o3d.utility.Vector3dVector(masked_colors)
+            if masked_pcd.is_empty():
+                print(f"[WARNING] Empty PCD for mask {idx+1}, skipping.")
+                continue
+
+            pointcloud_filepath = os.path.join(
+                output_pointcloud_dir,
+                f"pointcloud_{Path(image_filename).stem}_{idx}.pcd"
+            )
+
+            self.save_pointcloud(masked_pcd, pointcloud_filepath)
+            point_cloud_filepaths.append(pointcloud_filepath)
+
+        normed_pcd_filepath = os.path.join(
+            output_pointcloud_dir,
+            f"pointcloud_{Path(image_filename).stem}_whole.pcd"
+        )
+        self.save_pointcloud(scene_pcd, normed_pcd_filepath)
+
+        return camera_position, camera_lookat, normed_pcd_filepath, point_cloud_filepaths, False, depth_map_np, focal_val # canonicalized = false
+
+```
+
+190. Remember that PIL image has W, H = image.size, but it may be the reverse for the order of dimension in numpy. Be very careful when dealing with the mask.
+
+191. Check for model's confidence to examine whether it is "guessing" answers on multiple choice questions.
+
+192. The way to fetch every branch from remote and track them, create local branch if it does not exist:
+
+```
+git branch -r | grep origin/ | grep -v -- '->' | sed 's|origin/||' | xargs -I{} git branch --track {} origin/{}
+```
+
+(Note the -- in grep is necessary.)
+
+193. cherry-pick all non-conflict commits:
+
+```
+#!/bin/bash
+
+# Ensure you are on the correct branch before running
+# git checkout my-feature-branch
+
+# Get the list of commits in main that are not in the current branch (HEAD)
+# --reverse ensures they are processed in chronological order (oldest first)
+commits_to_pick=$(git rev-list --reverse HEAD..main)
+
+if [ -z "$commits_to_pick" ]; then
+  echo "Your branch is up to date with main. Nothing to do."
+  exit 0
+fi
+
+echo "Starting to cherry-pick commits from main..."
+
+# Loop through each commit hash
+for commit in $commits_to_pick
+do
+  echo "--------------------------------------------------------"
+  echo "Attempting to cherry-pick commit: $(git log --format='%h %s' -n 1 $commit)"
+
+  # Attempt to cherry-pick the commit.
+  # The '-n' or '--no-commit' option is not used so that successful picks are committed automatically.
+  if git cherry-pick $commit &> /dev/null; then
+    echo "✅ Successfully cherry-picked $commit"
+  else
+    echo "❌ Conflict detected on commit $commit. Skipping it."
+    # Abort the cherry-pick to reset the working directory to a clean state
+    git cherry-pick --abort
+  fi
+done
+
+echo "--------------------------------------------------------"
+echo "Process complete. All non-conflicting commits have been applied."
+```
+
+194. when you are using ray, you need to check whether the worker sees the same file as the driver. This is particularly confusing if you are working on the same node.
+
+195. Be careful of your GPU utilization ratio (for VLLM) when you are training LLM (e.g. with verl). If you are using smaller GPUs, you should slightly decrease this utilization ratio to make room for pytorch.
+
+196. Qwen models might meet illegal memory access issue; try to add these when running your experiments:
+
+```
+export CUDA_ENABLE_COREDUMP_ON_EXCEPTION=1
+export CUDA_COREDUMP_SHOW_PROGRESS=1
+export CUDA_COREDUMP_GENERATION_FLAGS='skip_nonrelocated_elf_images,skip_global_memory,skip_shared_memory,skip_local_memory'
+export CUDA_COREDUMP_FILE="/persistent_dir/cuda_coredump_%h.%p.%t"
+
+export VLLM_ATTENTION_BACKEND=XFORMERS # important!
+```
+
+197. be very careful when using if {data_structure}; check bool() explicitly. For example, dataproto in verl could silently be false when converted to bool, causing "if ..." to fail.
+
+198. When you check logprob between ref model and actor, be very careful with your temperature, which could scale logprob!
+
+199. How to find indentation error in a big project:
+
+```
+from pathlib import Path
+import sys
+for p in sorted(Path('.').rglob('*.py')):
+    try:
+        compile(p.read_text(encoding='utf-8'), str(p), 'exec')
+    except IndentationError as e:
+        print(f"\nIndentationError in {p}:{e.lineno}:{e.offset or ''} -> {e.msg}")
+        # Show the bad line:
+        try:
+            line = p.read_text(encoding='utf-8').splitlines()[e.lineno-1]
+            print(f"  {line}")
+        except Exception:
+            pass
+        sys.exit(1)
+print("No IndentationError found.")
+```
+
+200. If the training hangs, you could consider:
+
+1. tensor parallel and NCCL. Is it the problem of xformers / tensor parallel size with too small overhead for communication?
+
+2. Do you have the same number of forward / backward across different ranks for training?
+
+specifically, for verl which hangs at NCCL version, set export NCCL_P2P_DISABLE=1 as suggested by this: https://github.com/volcengine/verl/issues/597
+
+201. How to check which card has ECC error:
+
+
+```
+nvidia-smi -q -d ECC | egrep "GPU [0-9]|Single Bit|Double Bit|Uncorrectable" -n
+nvidia-smi --query-gpu=index,pci.bus_id --format=csv,noheader
+```
+
+
 <!--
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
