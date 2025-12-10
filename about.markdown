@@ -6,7 +6,7 @@ permalink: /about/
 
 <br/>
 
-*I express my heartfelt gratitude to the mentors of my research career, Dr. Jiecao Chen, Prof. Alexander Schwing, Prof. Yu-Xiong Wang, Dr. Jie Yan, Dr. Chuan Luo, Prof. Changliu Liu and Prof. Zongqing Lu (sorted by time), as well as all the wonderous people I have met at ByteDance, UIUC, 
+*I express my heartfelt gratitude to the mentors of my research career, Prof. Philipp Kraehenbuehl, Dr. Jiecao Chen, Prof. Alexander Schwing, Prof. Yu-Xiong Wang, Dr. Jie Yan, Dr. Chuan Luo, Prof. Changliu Liu and Prof. Zongqing Lu (sorted by time), as well as all the wonderous people I have met at Apple, ByteDance, UIUC, 
 MSRA, CMU and PKU. I learned all these tips from my experiences working with you.*
 
 
@@ -614,22 +614,28 @@ if rank_zero_only(self.rank):
     self.log_metrics(all_rollouts, is_ood_eval=True)
 ```
 
+{:start="185"}
+
 185. How to debug multi-GPU LLM job:
-     1) Follow point 181 and 182.
-     2) check if the temperature is set to 0 / do_sample is False. there could be minor difference even with these, but the performance should not be wildly different.
-     3) check point 183.
-     4) check model precision and quantization: are you using float32 or bfloat16?
-     5) check input sizes: is it too large? (e.g. too large image for vlm)?
-     6) output input token and output logits for a single data for comparison
-     7) Be very careful to check whether your result is properly aggregated across GPUs instead of showing result only from one GPU.
-     8) check padding length. This should not lead to that different performance but still worth checking.
-     9) check if your model.eval() is on.
-     10) check environment version (e.g. version of python and transformer).
-     11) A 1-2% performance difference is OK; a 5% performance difference is alarming.
+     
+- Follow point 181 and 182.
+- check if the temperature is set to 0 / do_sample is False. there could be minor difference even with these, but the performance should not be wildly different.
+- check point 183.
+- check model precision and quantization: are you using float32 or bfloat16?
+- check input sizes: is it too large? (e.g. too large image for vlm)?
+- output input token and output logits for a single data for comparison
+- Be very careful to check whether your result is properly aggregated across GPUs instead of showing result only from one GPU.
+- check padding length. This should not lead to that different performance but still worth checking.
+- check if your model.eval() is on.
+- check environment version (e.g. version of python and transformer).
+- A 1-2% performance difference is OK; a 5% performance difference is alarming.
+
+{:start="186"}
 
 186. Your git merge only works with local target branch. Make sure you have git pulled before you merge.
 
 187. How to build your custom evaluation over HF evaluate(): (+deepspeed zero2)
+
 ```
 class QwenSFTTrainer(Trainer):
     """
@@ -800,6 +806,8 @@ class QwenSFTTrainer(Trainer):
         return metrics
 ```
 
+{:start="188"}
+
 188. Be careful with single element and list of elements in datasets. For example, you have
 
 ```
@@ -818,6 +826,8 @@ ds_sub = ds.filter(lambda ex: ex["label"] in allowed)
 ```
 
 for single element.
+
+{:start="189"}
 
 189. Code for retrieving point cloud from image and mask: (remember to check whether the "default direction" is \[0, 0, 1\] or \[0, 0, -1\]!)
 
@@ -930,6 +940,8 @@ def run_custom(self, image_filename, image, masks, output_dir):
 
 ```
 
+{:start="190"}
+
 190. Remember that PIL image has W, H = image.size, but it may be the reverse for the order of dimension in numpy. Be very careful when dealing with the mask.
 
 191. Check for model's confidence to examine whether it is "guessing" answers on multiple choice questions.
@@ -941,6 +953,8 @@ git branch -r | grep origin/ | grep -v -- '->' | sed 's|origin/||' | xargs -I{} 
 ```
 
 (Note the -- in grep is necessary.)
+
+{:start="193"}
 
 193. cherry-pick all non-conflict commits:
 
@@ -982,6 +996,8 @@ echo "--------------------------------------------------------"
 echo "Process complete. All non-conflicting commits have been applied."
 ```
 
+{:start="194"}
+
 194. when you are using ray, you need to check whether the worker sees the same file as the driver. This is particularly confusing if you are working on the same node.
 
 195. Be careful of your GPU utilization ratio (for VLLM) when you are training LLM (e.g. with verl). If you are using smaller GPUs, you should slightly decrease this utilization ratio to make room for pytorch.
@@ -996,6 +1012,8 @@ export CUDA_COREDUMP_FILE="/persistent_dir/cuda_coredump_%h.%p.%t"
 
 export VLLM_ATTENTION_BACKEND=XFORMERS # important!
 ```
+
+{:start="197"}
 
 197. be very careful when using if {data_structure}; check bool() explicitly. For example, dataproto in verl could silently be false when converted to bool, causing "if ..." to fail.
 
@@ -1021,16 +1039,19 @@ for p in sorted(Path('.').rglob('*.py')):
 print("No IndentationError found.")
 ```
 
+{:start="200"}
+
 200. If the training hangs, you could consider:
 
-1. tensor parallel and NCCL. Is it the problem of xformers / tensor parallel size with too small overhead for communication?
+- tensor parallel and NCCL. Is it the problem of xformers / tensor parallel size with too small overhead for communication?
 
-2. Do you have the same number of forward / backward across different ranks for training?
+- Do you have the same number of forward / backward across different ranks for training?
 
 specifically, for verl which hangs at NCCL version, set export NCCL_P2P_DISABLE=1 as suggested by this: https://github.com/volcengine/verl/issues/597
 
-201. How to check which card has ECC error:
+{:start="201"}
 
+201. How to check which card has ECC error:
 
 ```
 nvidia-smi -q -d ECC | egrep "GPU [0-9]|Single Bit|Double Bit|Uncorrectable" -n
