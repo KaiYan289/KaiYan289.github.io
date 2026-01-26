@@ -41,6 +41,8 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
  
 # Publications 
 
+Siqi Yang, **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Latent Wasserstein Adversarial Imitation Learning. In *ICLR*, 2026. 
+
 **Kai Yan**, Yufei Xu, Zhengyin Du, Xuesong Yao, Zheyu Wang, Xiaowen Guo, Jiecao Chen. Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems? In *IJCNLP-AACL*, 2025. <a href="https://arxiv.org/abs/2504.00509" title="RoR-Bench">[PDF]</a><a href="https://huggingface.co/papers/2504.00509" title="RoR-Bench">[HuggingFace]</a>
 
 **Kai Yan**, Zhan Ling, Kang Liu, Yifan Yang, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. MIR-Bench: Can Your LLM Recognize Complicated Patterns via Many-Shot In-Context Reasoning? (Previous name: MIR-Bench: Benchmarking LLM’s Long-Context Intelligence via Many-Shot In-Context Inductive Reasoning). In *NeurIPS Datasets & Benchmarks Track*, 2025. <a href="https://arxiv.org/abs/2502.09933" title="MIR-Bench">[PDF]</a><a href="https://github.com/KaiYan289/MIR-Bench" title="webpage">[Website]</a><a href="https://huggingface.co/datasets/kaiyan289/MIR-Bench" title="dataset">[HuggingFace]</a>
