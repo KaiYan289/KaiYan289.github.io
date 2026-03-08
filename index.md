@@ -41,7 +41,7 @@ You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://git
  
 # Publications 
 
-Siqi Yang, **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Latent Wasserstein Adversarial Imitation Learning. In *ICLR*, 2026. 
+Siqi Yang, **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Latent Wasserstein Adversarial Imitation Learning. In *ICLR*, 2026. <a href="https://arxiv.org/pdf/2603.05440" title="LWAIL">[PDF]</a><a href="https://jackyyang258.github.io/projects/lwail/">[Website]</a>
 
 **Kai Yan**, Yufei Xu, Zhengyin Du, Xuesong Yao, Zheyu Wang, Xiaowen Guo, Jiecao Chen. Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems? In *IJCNLP-AACL*, 2025. <a href="https://arxiv.org/abs/2504.00509" title="RoR-Bench">[PDF]</a><a href="https://huggingface.co/papers/2504.00509" title="RoR-Bench">[HuggingFace]</a>
 
