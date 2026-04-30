@@ -31,14 +31,16 @@ line-height: 0.8;
  
 # Who am I?
 
-Hi there! I am Kai Yan (颜开 in Chinese), a fourth-year Ph.D. student in the Department of Computer Science at University of Illinois Urbana-Champaign (UIUC), co-advised by <a href="https://alexander-schwing.de/" title="Prof. Alex G. Schwing">Prof. Alexander Schwing</a> and <a href="https://yxw.web.illinois.edu/" title="Prof. Yu-Xiong Wang">Prof. Yu-Xiong Wang</a>. 
+Hi there! I am Kai Yan (颜开 in Chinese), a final-year Ph.D. student (all but dissertation) in the Department of Computer Science at University of Illinois Urbana-Champaign (UIUC), co-advised by <a href="https://alexander-schwing.de/" title="Prof. Alex G. Schwing">Prof. Alexander Schwing</a> and <a href="https://yxw.web.illinois.edu/" title="Prof. Yu-Xiong Wang">Prof. Yu-Xiong Wang</a>. 
 Prior to that, I get my Bachelor of Science degree in computer science at Peking University with a *Summa Cum Laude* and a national scholarship. In my high school years, I learned informatics and got a silver award in the National Olympiad of Informatics (NOI 2016).
 
-My research interest is **deep learning for better decision making**, which is mainly **deep reinforcement learning and imitation learning**. I have conducted research in the following fields: 1) optimization with prediction, 
-2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, 4) decision transformer, and 5) Large Language Model (LLM) / Vision-Language Model (VLM) agents.
+My research interest is **demonstration for better decision making**, which is mainly **reinforcement learning, imitation learning and LLM agents**. I have conducted research in the following fields: 1) optimization with prediction, 
+2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, 4) decision transformer, and 5) Large Language Model (LLM) / Vision-Language Model (VLM) agents with RL / in-context learning.
 
 You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://github.com/kaiyan289" title="github">Github</a> and <a href="https://www.linkedin.com/in/%E5%BC%80-%E9%A2%9C-18b7931b1/" title="Linkedin">Linkedin</a> here. Don't forget to check your daily tips at the top of this page!
  
+<p style="color: red; font-weight: bold;">I am searching for full-time job now! I will graduate on May 2027, and be on full-time job market for then.</p>
+
 # Publications 
 
 Siqi Yang, **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Latent Wasserstein Adversarial Imitation Learning. In *ICLR*, 2026. <a href="https://arxiv.org/pdf/2603.05440" title="LWAIL">[PDF]</a><a href="https://jackyyang258.github.io/projects/lwail/">[Website]</a>
