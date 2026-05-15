@@ -65,6 +65,8 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 
 # Preprints
 
+**Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Boosting Reinforcement Learning with Verifiable Rewards via Randomly Selected Few-Shot Guidance. *arXiv: 2605.15012*, 2026. <a href="https://arxiv.org/abs/2605.15012" title="FEST">[PDF]</a>
+
 Zhan Ling, Kang Liu, **Kai Yan**, Yifan Yang, Weijian Lin, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. LongReason: A Synthetic Long-Context Reasoning Benchmark via Context Expansion. *arXiv:2501.15089*, 2025. <a href="https://arxiv.org/abs/2501.15089" title="LongReason">[PDF]</a>
 
 **Kai Yan\***, Zhenggang Tang\*, Liting Sun, Wei Zhan, Changliu Liu. A Microscopic Pandemic Simulator for Pandemic Prediction Using Scalable Million-Agent Reinforcement Learning. *arXiv:2108.06589*, 2021.<a href="https://arxiv.org/abs/2108.06589" title="MARL">[PDF]</a> 
