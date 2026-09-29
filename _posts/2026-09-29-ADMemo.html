@@ -439,7 +439,7 @@ permalink: /projects/ad-memo/
   <main>
     <section id="videos">
       <div class="container">
-        <h2 class="section-title">The Challenge: Driving Requires Memory</h2>
+        <h2 class="section-title">Memory Helps Autonomous Driving</h2>
         <p class="section-intro">
           VLA agents cannot take too many frames as input due to the high token cost of images. Thus, the current image input can be ambiguous
           when the relevant evidence appeared only seconds earlier. Below shows example of how memory can help the agent make the right driving decision.
@@ -458,7 +458,7 @@ permalink: /projects/ad-memo/
               <summary>Click to see how memory helps</summary>
               <div class="video-grid">
                 <article class="video-card">
-                  <video controls playsinline preload="metadata" aria-label="All-way-stop qualitative demonstration">
+                  <video controls playsinline muted preload="metadata" aria-label="All-way-stop qualitative demonstration">
                     <source src="all_way_stop.mp4" type="video/mp4">
                     Your browser cannot play this MP4.
                   </video>
@@ -479,7 +479,7 @@ permalink: /projects/ad-memo/
               <summary>Click to see how memory helps</summary>
               <div class="video-grid">
                 <article class="video-card">
-                  <video controls playsinline preload="metadata" aria-label="General-driving qualitative demonstration">
+                  <video controls playsinline muted preload="metadata" aria-label="General-driving qualitative demonstration">
                     <source src="general_driving.mp4" type="video/mp4">
                     Your browser cannot play this MP4.
                   </video>
@@ -571,7 +571,7 @@ permalink: /projects/ad-memo/
 
     <section class="soft" id="datasets">
       <div class="container">
-        <h2 class="section-title">How Curate Driving-Critical Memory?</h2>
+        <h2 class="section-title">How to Curate Driving-Critical Memory?</h2>
         <p class="section-intro">
           We curate two datasets: all-way stop and general driving. For the former, object of interest are the cars in the crossing and thus we can generate rule-based memory;
           for the latter, we need to identify objects that really affects driving decisions.
@@ -714,6 +714,18 @@ permalink: /projects/ad-memo/
     videos.forEach((video) => {
       video.addEventListener("play", () => {
         videos.forEach((other) => { if (other !== video) other.pause(); });
+      });
+    });
+
+    document.querySelectorAll(".video-details").forEach((details) => {
+      const video = details.querySelector("video");
+      details.addEventListener("toggle", () => {
+        if (details.open) {
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
       });
     });
 
