@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 56" role="img" aria-labelledby="title desc">
+  <title id="title">Da Capo musical staff ornament</title>
+  <desc id="desc">A thin four-measure musical staff divider with varied notes and the marking D.C. al Fine.</desc>
+  <rect width="1400" height="56" fill="#ffffff"/>
+  <defs>
+    <g id="note" fill="#202825" stroke="#202825" stroke-linecap="round">
+      <ellipse cx="0" cy="0" rx="4.8" ry="3.1" transform="rotate(-18)"/>
+      <path d="M4 -1V-15" stroke-width="1.35"/>
+    </g>
+  </defs>
+  <g fill="none" stroke="#202825" stroke-width="1.15">
+    <path d="M14 23H1386M14 27H1386M14 31H1386M14 35H1386M14 39H1386"/>
+    <path d="M14 23V39M19 23V39M357 23V39M700 23V39M1043 23V39M1381 23V39M1386 23V39"/>
+  </g>
+  <g>
+    <!-- Ode to Joy: E E F G | G F E D | C C D E | E D D– -->
+    <use href="#note" x="70" y="31"/>
+    <use href="#note" x="150" y="31"/>
+    <use href="#note" x="230" y="29"/>
+    <use href="#note" x="310" y="27"/>
+
+    <use href="#note" x="413" y="27"/>
+    <use href="#note" x="493" y="29"/>
+    <use href="#note" x="573" y="31"/>
+    <use href="#note" x="653" y="33"/>
+
+    <use href="#note" x="756" y="35"/>
+    <use href="#note" x="836" y="35"/>
+    <use href="#note" x="916" y="33"/>
+    <use href="#note" x="996" y="31"/>
+
+    <use href="#note" x="1099" y="31"/>
+    <use href="#note" x="1179" y="33"/>
+    <use href="#note" x="1259" y="33"/>
+    <use href="#note" x="1339" y="33"/>
+    <path d="M1259 39Q1299 49 1339 39" fill="none" stroke="#202825" stroke-width="1.2"/>
+  </g>
+  <text x="1260" y="11" fill="#202825" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">D.C. al Fine</text>
+</svg>
