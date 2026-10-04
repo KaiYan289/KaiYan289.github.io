@@ -65,6 +65,8 @@ Andy Zhou, **Kai Yan**, Michal Shlapentokh-Rothman, Haohan Wang, Yuxiong Wang. L
 
 # Preprints
 
+**Kai Yan** et al. Vision-Language-Action Autonomous Driving Agent with Language-based Memory. *arXiv: 2609.38641*, 2026.<a href="https://arxiv.org/abs/2609.38641" title="AD-Memo">[PDF]</a>
+
 **Kai Yan**, Alexander G. Schwing and Yuxiong Wang. Boosting Reinforcement Learning with Verifiable Rewards via Randomly Selected Few-Shot Guidance. *arXiv: 2605.15012*, 2026. <a href="https://arxiv.org/abs/2605.15012" title="FEST">[PDF]</a> (Oral recommendation by AC @ AI4Math Workshop on ICML 2026)
 
 Zhan Ling, Kang Liu, **Kai Yan**, Yifan Yang, Weijian Lin, Ting-Han Fan, Lingfeng Shen, Zhengyin Du, Jiecao Chen. LongReason: A Synthetic Long-Context Reasoning Benchmark via Context Expansion. *arXiv:2501.15089*, 2025. <a href="https://arxiv.org/abs/2501.15089" title="LongReason">[PDF]</a>
