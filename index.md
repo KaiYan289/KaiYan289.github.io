@@ -34,8 +34,7 @@ line-height: 0.8;
 Hi there! I am Kai Yan (颜开 in Chinese), a final-year Ph.D. student (all but dissertation) in the Department of Computer Science at University of Illinois Urbana-Champaign (UIUC), co-advised by <a href="https://alexander-schwing.de/" title="Prof. Alex G. Schwing">Prof. Alexander Schwing</a> and <a href="https://yxw.web.illinois.edu/" title="Prof. Yu-Xiong Wang">Prof. Yu-Xiong Wang</a>. 
 Prior to that, I get my Bachelor of Science degree in computer science at Peking University with a *Summa Cum Laude* and a national scholarship. In my high school years, I learned informatics and got a silver award in the National Olympiad of Informatics (NOI 2016).
 
-My research interest is **demonstration for better decision making**, which is mainly **reinforcement learning, imitation learning and LLM agents**. I have conducted research in the following fields: 1) optimization with prediction, 
-2) multi-agent reinforcement learning, 3) demonstration-guided reinforcement learning and imitation learning, 4) decision transformer, and 5) Large Language Model (LLM) / Vision-Language Model (VLM) agents with RL / in-context learning.
+I am an "RL/Agent" people. I have a diverse background in many areas, such as reinforcement learning for control, LLM/VLM agent (both training-free and RLVR-based), and physical AI (VLA agent with reinforcement learning). I believe that the GPT-6 astra-like reasoning policy and current VLA embodied AI efforts are two paths that will eventually merge --- with the help of RL --- and I am ready to go along this goal either way.
 
 You can check my <a href="My_resume.pdf" title="CV">CV</a>, <a href="https://github.com/kaiyan289" title="github">Github</a> and <a href="https://www.linkedin.com/in/%E5%BC%80-%E9%A2%9C-18b7931b1/" title="Linkedin">Linkedin</a> here. Don't forget to check your daily tips at the top of this page!
  
